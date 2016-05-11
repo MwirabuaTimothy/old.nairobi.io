@@ -1,38 +1,52 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreateUsersTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password')->nullable();
-            $table->string('confirmation_code');
-            $table->boolean('confirmed')->default(config('access.users.confirm_email') ? false : true);
-            $table->rememberToken();
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at');
-            $table->softDeletes();
-        });
-    }
+class CreateUsersTable extends Migration {
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up() {
+		Schema::create('users', function (Blueprint $table) {
+			$table->increments('id');
+			$table->string('first_name');
+			$table->string('last_name');
+			$table->string('username');
+			$table->string('email')->unique();
+			$table->enum('gender', ['Male, Female']);
+			$table->string('fb_uid');
+			$table->string('zip');
+			$table->string('phone_number');
+			$table->string('profile_image');
+			$table->date('dob');
+			$table->string('bio');
+			$table->string('education_institution');
+			$table->string('education_course');
+			$table->string('organization');
+			$table->string('job');
+			$table->string('hometown');
+			$table->string('current_city');
+			$table->string('national_id');
+			$table->string('passport');
+			$table->string('password')->nullable();
+			$table->string('confirmation_code');
+			$table->boolean('confirmed')->default(config('access.users.confirm_email') ? false : true);
+			$table->rememberToken();
+			$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+			$table->timestamp('updated_at');
+			$table->softDeletes();
+		});
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('users');
-    }
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down() {
+		Schema::drop('users');
+	}
 }
