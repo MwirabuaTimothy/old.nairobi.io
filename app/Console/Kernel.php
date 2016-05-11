@@ -18,6 +18,10 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         // Commands\Inspire::class,
+        'App\Console\Commands\Inspire',
+        'App\Console\Commands\DBCreate',
+        'App\Console\Commands\DBDrop',
+        'App\Console\Commands\AppInstall',
     ];
 
     /**
