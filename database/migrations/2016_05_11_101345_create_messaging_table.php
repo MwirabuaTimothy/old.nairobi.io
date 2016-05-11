@@ -16,8 +16,7 @@ class CreateMessagesTable extends Migration {
 			$table->foreign('tour_id')->references('id')->on('tours');
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
-
-			$table->string('message');
+			$table->string('content');
 
 		});
 	}
