@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * Testing controller
+ */
+$router->controller('tests', 'TestsController');
+
+
 Route::group(['middleware' => 'web'], function() {
     /**
      * Switch between the included languages
