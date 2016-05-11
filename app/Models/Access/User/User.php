@@ -38,10 +38,10 @@ class User extends Authenticatable
 
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
      */
-    public function language() {
-        return $this->hasMany('\App\Language');
+    public function languages() {
+        return $this->belongsToMany('\App\Language', 'user_languages');
     }
 
 }

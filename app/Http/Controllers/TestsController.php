@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Access\User\User as User;
+use App\Models\Access\User\User;
+use App\Language;
+use DB;
 
 class TestsController extends Controller
 {
@@ -15,7 +17,13 @@ class TestsController extends Controller
     public function getIndex()
     {
         // return  array_merge([0=>'Please select one category'], \App\Category::lists('name', 'id'));
-        return User::find(1);
+        // return User::find(1);
+        // return Language::find(1);
+        return Language::find(1)->users;
+        // return User::find(1)->languages;
+        // return Language::all();
+        // return \App\DB::table('user_languages')->get();
+        return DB::table('user_languages')->get();
         // return date('now')->format('d M Y');
         return date('d M Y');
         // return \App\Carbon::now()->format('d M Y');

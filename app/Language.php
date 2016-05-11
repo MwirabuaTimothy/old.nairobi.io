@@ -10,8 +10,8 @@ class Language extends Model
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
 	 */
-	public function user() {
-		return $this->belongsToMany('\App\Models\Access\User\User');
+	public function users() {
+		return $this->belongsToMany('\App\Models\Access\User\User', 'user_languages');
 	}
 
 }
