@@ -3,14 +3,14 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateMessagingTable extends Migration {
+class CreateMessagesTable extends Migration {
 	/**
 	 * Run the migrations.
 	 *
 	 * @return void
 	 */
 	public function up() {
-		Schema::create('messaging', function (Blueprint $table) {
+		Schema::create('messages', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('tour_id')->unsigned();
 			$table->foreign('tour_id')->references('id')->on('tours');
@@ -28,6 +28,6 @@ class CreateMessagingTable extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Schema::drop('messaging');
+		Schema::drop('messages');
 	}
 }
