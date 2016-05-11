@@ -18,7 +18,7 @@ class CreateBookingsTable extends Migration {
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->timestamp('begin_at');
 			$table->timestamp('end_at');
-			$table->enum('accepted', ['Yes,No']);
+			$table->boolean('accepted');
 			$table->integer('tourists');
 			$table->string('preferences');
 		});
