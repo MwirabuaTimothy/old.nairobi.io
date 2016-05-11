@@ -14,6 +14,8 @@ class CreateLanguagesTable extends Migration {
 			$table->increments('id');
 			$table->string('code');
 			$table->string('name');
+			$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+			$table->timestamp('updated_at');
 		});
 	}
 

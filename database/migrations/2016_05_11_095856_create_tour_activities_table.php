@@ -13,10 +13,10 @@ class CreateTourActivitiesTable extends Migration {
 
 		Schema::create('tour_activities', function (Blueprint $table) {
 			$table->increments('id');
-			$table->integer('tour_id')->unsigned();
-			$table->foreign('tour_id')->references('id')->on('tours');
-			$table->integer('activity_id')->unsigned();
-			$table->foreign('activity_id')->references('id')->on('activities');
+			$table->integer('tour_id');
+			$table->integer('activity_id');
+			$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+			$table->timestamp('updated_at');
 		});
 	}
 

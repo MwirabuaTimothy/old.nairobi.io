@@ -13,6 +13,8 @@ class CreateActivitiesTable extends Migration {
 		Schema::create('activities', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('name');
+			$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+			$table->timestamp('updated_at');
 		});
 	}
 

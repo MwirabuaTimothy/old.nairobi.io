@@ -14,14 +14,15 @@ class CreateToursTable extends Migration {
 			$table->increments('id');
 			$table->string('title');
 			$table->string('description');
-			$table->integer('user_id')->unsigned();
-			$table->foreign('user_id')->references('id')->on('users');
+			$table->integer('user_id');
 			$table->string('image');
 			$table->timestamp('available_from');
 			$table->timestamp('available_to');
 			$table->string('rate');
 			$table->string('accommodates');
 			$table->string('rules');
+			$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+			$table->timestamp('updated_at');
 		});
 	}
 
