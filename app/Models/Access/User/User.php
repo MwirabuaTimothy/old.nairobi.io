@@ -35,4 +35,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function language() {
+        return $this->hasMany('\App\Language');
+    }
+
 }
