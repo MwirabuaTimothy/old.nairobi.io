@@ -20,7 +20,7 @@ class CreateToursTable extends Migration {
 			$table->timestamp('available_from');
 			$table->timestamp('available_to');
 			$table->string('rate');
-			$table->string('accomodates');
+			$table->string('accommodates');
 			$table->string('rules');
 		});
 	}
