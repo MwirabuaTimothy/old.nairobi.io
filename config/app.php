@@ -24,7 +24,7 @@ return [
     |
     */
 
-    'name' => 'Laravel 5 Bootstrap',
+    'name' => env('APP_NAME', 'Laravel 5 Bootstrap'),
 
     /*
     |--------------------------------------------------------------------------

@@ -19,11 +19,11 @@ class TestsController extends Controller
         // return  array_merge([0=>'Please select one category'], \App\Category::lists('name', 'id'));
         // return User::find(1);
         // return Language::find(1);
-        return Language::find(1)->users;
+        // return Language::find(1)->users;
         // return User::find(1)->languages;
         // return Language::all();
         // return \App\DB::table('user_languages')->get();
-        return DB::table('user_languages')->get();
+        // return DB::table('user_languages')->get();
         // return date('now')->format('d M Y');
         return date('d M Y');
         // return \App\Carbon::now()->format('d M Y');
@@ -47,25 +47,6 @@ class TestsController extends Controller
         return  array_merge([0=>'Please select one category'], $cats->toArray());
         // return $cats;
         return \App\Category::lists('name', 'id');
-    }
-    /**
-     * @return \Illuminate\View\View
-     */
-    public function getBootstrap()
-    {
-        javascript()->put([
-            'test' => 'it works!'
-        ]);
-
-        return view('frontend.bootstrap');
-    }
-
-    /**
-     * @return \Illuminate\View\View
-     */
-    public function getMacros()
-    {
-        return view('frontend.macros');
     }
 
     public function getName()
