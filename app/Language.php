@@ -11,7 +11,7 @@ class Language extends Model
 	 * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
 	 */
 	public function user() {
-		return $this->belongsToMany('App\User');
+		return $this->belongsToMany('\App\Models\Access\User\User');
 	}
 
 }
