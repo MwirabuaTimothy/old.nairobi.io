@@ -44,4 +44,11 @@ class User extends Authenticatable
         return $this->belongsToMany('\App\Language', 'user_languages');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function tours() {
+        return $this->hasMany('\App\Tour');
+    }
+
 }

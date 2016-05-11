@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Access\User\User;
 use App\Language;
+use App\Tour;
 use DB;
 
 class TestsController extends Controller
@@ -22,6 +23,7 @@ class TestsController extends Controller
         // return Language::find(1)->users;
         // return User::find(1)->languages;
         // return Language::all();
+        return Tour::all();
         // return \App\DB::table('user_languages')->get();
         // return DB::table('user_languages')->get();
         // return date('now')->format('d M Y');
