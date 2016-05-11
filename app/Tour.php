@@ -13,9 +13,16 @@ class Tour extends Model {
 		return $this->belongsTo('\App\Models\Access\User\User');
 	}
 	/**
-	 * @return \Illuminate\Database\Eloquent\Relations\hasMany
+	 * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
 	 */
 	public function activities() {
-		return $this->hasMany('\App\Acivity');
+		return $this->belongsToMany('\App\Activity', 'tour_activities');
 	}
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\hasMany
+	 */
+	public function reviews() {
+		return $this->hasMany('\App\Review');
+	}
+
 }
