@@ -13,7 +13,7 @@ class TestsController extends Controller {
 		// return  array_merge([0=>'Please select one category'], \App\Category::lists('name', 'id'));
 		// return User::find(1);
 		// return Language::find(1);
-		return User::find(1)->reviews;
+		//return Review::find(1);
 		// return User::find(1)->languages;
 		// return Language::all();
 		//return Tour::all();
