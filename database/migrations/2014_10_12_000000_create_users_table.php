@@ -38,7 +38,7 @@ class CreateUsersTable extends Migration {
             $table->boolean('phone_verified');
             $table->boolean('national_id_verified');
             $table->boolean('passport_verified');
-            $table->boolean('organisation_verified');
+            $table->boolean('organization_verified');
             $table->integer('verified_by');
 			$table->rememberToken();
 			$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
