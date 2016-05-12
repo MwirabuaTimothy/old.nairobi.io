@@ -43,6 +43,10 @@
 
                                 {!! link_to('password/reset', trans('labels.frontend.passwords.forgot_password')) !!}
                             </div><!--col-md-6-->
+                            <div class="col-md-6 col-md-offset-4" style="margin-top: 8px">
+                                <a href="{{URL::route('redirect')}}" class="btn btn-primary" style="background-color: #3b5998"><i class="fa fa-facebook"></i>
+                                        Log In via Facebook </a>
+                            </div>
                         </div><!--form-group-->
 
                     {!! Form::close() !!}

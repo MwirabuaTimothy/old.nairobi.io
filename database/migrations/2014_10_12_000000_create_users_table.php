@@ -16,8 +16,8 @@ class CreateUsersTable extends Migration {
 			$table->string('last_name');
 			$table->string('username');
 			$table->string('email')->unique();
-			$table->enum('gender', ['m, f']);
-            $table->string('fb_uid');
+			$table->string('gender');
+			$table->string('fb_uid');
 			$table->string('gg_uid');
 			$table->string('zip');
 			$table->string('phone');
@@ -44,6 +44,8 @@ class CreateUsersTable extends Migration {
 			$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->timestamp('updated_at');
 			$table->softDeletes();
+			$table->integer('role');
+
 		});
 	}
 
