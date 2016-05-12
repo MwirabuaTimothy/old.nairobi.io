@@ -16,8 +16,8 @@ class CreateToursTable extends Migration {
 			$table->string('description');
 			$table->integer('user_id');
 			$table->string('image');
-			$table->timestamp('available_from');
-			$table->timestamp('available_to');
+			$table->datetime('available_from');
+			$table->datetime('available_to');
 			$table->string('rate');
 			$table->string('accommodates');
 			$table->string('rules');
