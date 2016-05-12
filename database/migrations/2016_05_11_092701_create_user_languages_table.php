@@ -16,7 +16,9 @@ class CreateUserLanguagesTable extends Migration {
 			$table->integer('language_id');
 			$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->timestamp('updated_at');
+			$table->softDeletes();
 		});
+
 	}
 
 	/**

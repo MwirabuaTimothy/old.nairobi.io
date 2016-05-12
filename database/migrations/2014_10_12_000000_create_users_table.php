@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration {
 			$table->string('username');
 			$table->string('email')->unique();
 			$table->enum('gender', ['m, f']);
-            $table->string('fb_uid');
+			$table->string('fb_uid');
 			$table->string('gg_uid');
 			$table->string('zip');
 			$table->string('phone');
@@ -35,15 +35,17 @@ class CreateUsersTable extends Migration {
 			$table->string('password')->nullable();
 			$table->string('confirmation_code');
 			$table->boolean('confirmed')->default(config('access.users.confirm_email') ? false : true);
-            $table->boolean('phone_verified');
-            $table->boolean('national_id_verified');
-            $table->boolean('passport_verified');
-            $table->boolean('organisation_verified');
-            $table->integer('verified_by');
+			$table->boolean('phone_verified');
+			$table->boolean('national_id_verified');
+			$table->boolean('passport_verified');
+			$table->boolean('organisation_verified');
+			$table->integer('verified_by');
 			$table->rememberToken();
 			$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->timestamp('updated_at');
 			$table->softDeletes();
+			$table->string('slug');
+
 		});
 	}
 
