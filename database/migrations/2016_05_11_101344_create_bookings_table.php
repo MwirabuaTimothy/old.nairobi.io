@@ -14,8 +14,8 @@ class CreateBookingsTable extends Migration {
 			$table->increments('id');
 			$table->integer('tour_id');
 			$table->integer('user_id');
-			$table->timestamp('begin_at');
-			$table->timestamp('end_at');
+			$table->datetime('begin_at');
+			$table->datetime('end_at');
 			$table->boolean('accepted');
 			$table->integer('tourists');
 			$table->string('preferences');
