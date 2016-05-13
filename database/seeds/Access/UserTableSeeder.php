@@ -27,7 +27,7 @@ class UserTableSeeder extends Seeder {
 			[
 				'first_name' => 'Timothy',
 				'last_name' => 'Mwirabua',
-				'email' => 'techytimo@gmail.com',
+				'email' => 'tim@gmail.com',
 				'password' => bcrypt('tim'),
 				'confirmation_code' => md5(uniqid(mt_rand(), true)),
 				'confirmed' => true,
