@@ -195,6 +195,7 @@ return [
 			         * Has to override the Collective\Html\HtmlServiceProvider form singleton
 		*/
 		App\Providers\MacroServiceProvider::class,
+		Chrisbjr\ApiGuard\Providers\ApiGuardServiceProvider::class,
 
 		// ...
 		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
@@ -254,6 +255,7 @@ return [
 		'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
 		'Html' => Collective\Html\HtmlFacade::class,
 		'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+		'ApiGuardAuth' => \Chrisbjr\ApiGuard\Facades\ApiGuardAuth::class,
 
 	],
 ];

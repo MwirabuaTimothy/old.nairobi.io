@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Access\User\User;
 use Auth;
+use Chrisbjr\ApiGuard\Models\ApiKey;
 use Laravel\Socialite\Facades\Socialite;
 
 class RegistrationController extends Controller {
@@ -16,15 +17,13 @@ class RegistrationController extends Controller {
 
 	public function callback() {
 		// when facebook call us a with token
-		// GET /v2.6/{user-id} HTTP/1.1
+
 		$user = Socialite::driver('facebook')->fields(['first_name', 'last_name', 'email', 'gender', 'birthday', 'about', 'bio', 'education', 'hometown', 'location', 'work'])->user();
-		//dd($user);
+		//dd(date("Y-m-d", strtotime($user->user['birthday'])));
 		$last_sch = $user->user['education'][count($user->user['education']) - 1];
 
-		return $last_sch['school']['name'];
-
 		$existing_user = User::where('email', $user->email)->first();
-
+		$new_token = new ApiKey;
 		if ($existing_user === null) {
 
 			$existing_user = User::create([
@@ -33,20 +32,23 @@ class RegistrationController extends Controller {
 				'email' => $user->user['email'],
 				'gender' => $user->user['gender'],
 				'fb_uid' => $user->user['id'],
-				'dob' => $user->user['birthday'],
-				'about' => $user->user['about'],
+				'dob' => date("Y-m-d", strtotime($user->user['birthday'])),
 				'bio' => $user->user['bio'],
 				'hometown' => $user->user['hometown']['name'],
 				'current_city' => $user->user['location']['name'],
 				'education_institution' => $last_sch['school']['name'],
 				'image' => $user->avatar,
+				'api_key' => $new_token->getApiKey(),
 			]);
+			// if ($existing_user->save()) {
+			// 	$new_token = new ApiKey;
+			// 	$new_token->api_key = $new_token->getApiKey();
+			// 	$new_token->user_id = $existing_user->id;
+			// }
 		}
-		$existing_user->first_name = $separate_name[0];
-		$existing_user->last_name = $separate_name[1];
 
 		Auth::login($existing_user);
-		return "loged in";
+		return redirect('/');
 	}
 
 	//return redirect()->to('/')->;

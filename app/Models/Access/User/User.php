@@ -26,7 +26,7 @@ class User extends Authenticatable implements SluggableInterface {
 
 	protected $sluggable = [
 		// 'first_name' => 'name',
-  //       'last_name' => 'name',
+		//       'last_name' => 'name',
 		'build_from' => ['first_name', 'last_name'],
 		'save_to' => 'username',
 	];
@@ -68,6 +68,12 @@ class User extends Authenticatable implements SluggableInterface {
 	 */
 	public function reviews() {
 		return $this->hasMany('\App\Review');
+	}
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\hasOne
+	 */
+	public function apikey() {
+		return $this->hasOne('Chrisbjr\ApiGuard\Models\ApiKey');
 	}
 
 }
