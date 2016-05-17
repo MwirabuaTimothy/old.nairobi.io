@@ -23,29 +23,36 @@ class RegistrationController extends Controller {
 		$last_sch = $user->user['education'][count($user->user['education']) - 1];
 
 		$existing_user = User::where('email', $user->email)->first();
-		$new_token = new ApiKey;
+
 		if ($existing_user === null) {
 
-			$existing_user = User::create([
-				'first_name' => $user->user['first_name'],
-				'last_name' => $user->user['last_name'],
-				'email' => $user->user['email'],
-				'gender' => $user->user['gender'],
-				'fb_uid' => $user->user['id'],
-				'dob' => date("Y-m-d", strtotime($user->user['birthday'])),
-				'bio' => $user->user['bio'],
-				'hometown' => $user->user['hometown']['name'],
-				'current_city' => $user->user['location']['name'],
-				'education_institution' => $last_sch['school']['name'],
-				'image' => $user->avatar,
-				'api_key' => $new_token->getApiKey(),
-			]);
-			// if ($existing_user->save()) {
-			// 	$new_token = new ApiKey;
-			// 	$new_token->api_key = $new_token->getApiKey();
-			// 	$new_token->user_id = $existing_user->id;
-			// }
+			$existing_user = new User;
+			$existing_user->first_name = $user->user['first_name'];
+			$existing_user->last_name = $user->user['last_name'];
+			$existing_user->email = $user->user['email'];
+			$existing_user->gender = $user->user['gender'];
+			$existing_user->fb_uid = $user->user['id'];
+			$existing_user->dob = date("Y-m-d", strtotime($user->user['birthday']));
+			$existing_user->bio = $user->user['bio'];
+			$existing_user->hometown = $user->user['hometown']['name'];
+			$existing_user->current_city = $user->user['location']['name'];
+			$existing_user->education_institution = $last_sch['school']['name'];
+			$existing_user->image = $user->avatar;
+			//'api_key' => $new_token->getApiKey(),
+			$existing_user->save();
 		}
+		$token = ApiKey::where('user_id', $existing_user->id)->first();
+		if ($token === null) {
+			$token = new ApiKey;
+			$token->key = $token->getApiKey();
+			$token->user_id = $existing_user->id;
+			$token->save();
+
+		}
+
+		$token->key = $token->getApiKey();
+		//$token->user_id = $existing_user->id;
+		$token->save();
 
 		Auth::login($existing_user);
 		return redirect('/');

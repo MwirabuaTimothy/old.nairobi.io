@@ -14,14 +14,14 @@ class CreateApiKeysTable extends Migration {
 		Schema::create('api_keys', function (Blueprint $table) {
 			$table->increments('id');
 			$table->integer('user_id')->nullable();
-			$table->string('api_key', 40);
+			$table->string('key', 40);
 			$table->smallInteger('level');
 			$table->boolean('ignore_limits');
 			$table->nullableTimestamps();
 			$table->softDeletes();
 
-			// unique api_key
-			$table->unique('api_key');
+			// unique key
+			$table->unique('key');
 
 			// Let's index the user ID just in case you don't set it as a foreign key
 			$table->index('user_id');
