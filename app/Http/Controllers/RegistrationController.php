@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\ApiKey;
 use App\Models\Access\User\User;
 use Auth;
-use Chrisbjr\ApiGuard\Models\ApiKey;
 use Laravel\Socialite\Facades\Socialite;
 
 class RegistrationController extends Controller {
