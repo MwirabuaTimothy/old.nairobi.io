@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Chrisbjr\ApiGuard\Models\ApiKey as PackageKey;
 
-class ApiKey extends PackageKey(){
+class ApiKey extends PackageKey {
+	protected $table = 'api_keys';
 	public static function getUsersKey($user_id) {
 		$api_obj = ApiKey::where('user_id', $user_id)->first(['key']);
 
@@ -19,5 +19,19 @@ class ApiKey extends PackageKey(){
 		}
 
 		return $api_obj !== null ? $api_obj['key'] : null;
+	}
+	public function getApiKey() {
+
+		$salt = sha1(time() . mt_rand());
+		$newKey = substr($salt, 0, 40);
+		// Already in the DB? Fail. Try again
+
+		return $newKey;
+	}
+/**
+ * @return \Illuminate\Database\Eloquent\Relations\hasOne
+ */
+	public function user() {
+		return $this->belongsTo('\App\Models\Access\User\User');
 	}
 }
