@@ -15,7 +15,7 @@ class RegistrationController extends Controller {
 		return Socialite::driver('facebook')->fields(['first_name', 'last_name', 'email', 'gender', 'birthday', 'about', 'bio', 'education', 'hometown', 'location', 'work'])->redirect();
 	}
 
-	public function callback() {
+	public function facebook() {
 		// when facebook call us a with token
 
 		$user = Socialite::driver('facebook')->fields(['first_name', 'last_name', 'email', 'gender', 'birthday', 'about', 'bio', 'education', 'hometown', 'location', 'work'])->user();

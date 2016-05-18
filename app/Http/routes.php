@@ -6,8 +6,9 @@
 $router->controller('tests', 'TestsController');
 
 Route::group(['middleware' => 'web'], function () {
+	
 	Route::get('redirect', ['uses' => 'RegistrationController@redirect', 'as' => 'redirect']);
-	Route::get('callback', ['uses' => 'RegistrationController@callback', 'as' => 'callback']);
+	Route::get('account/facebook', ['uses' => 'RegistrationController@facebook', 'as' => 'facebook']);
 
 	Route::group(['prefix' => 'api/v1'], function () {
 

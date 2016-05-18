@@ -48,7 +48,7 @@ return [
 	'bitbucket' => [
 		'client_id' => env('BITBUCKET_CLIENT_ID'),
 		'client_secret' => env('BITBUCKET_CLIENT_SECRET'),
-		'redirect' => env('BITBUCKET_REDIRECT'),
+		'redirect' => env('APP_URL').env('BITBUCKET_REDIRECT'),
 		'scopes' => [],
 		'with' => [],
 	],
@@ -56,7 +56,7 @@ return [
 	'facebook' => [
 		'client_id' => env('FACEBOOK_CLIENT_ID'),
 		'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-		'redirect' => env('FACEBOOK_REDIRECT'),
+		'redirect' => env('APP_URL').env('FACEBOOK_REDIRECT'),
 		'scopes' => [],
 		'with' => [],
 	],
@@ -72,7 +72,7 @@ return [
 	'google' => [
 		'client_id' => env('GOOGLE_CLIENT_ID'),
 		'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-		'redirect' => env('GOOGLE_REDIRECT'),
+		'redirect' => env('APP_URL').env('GOOGLE_REDIRECT'),
 
 		/**
 		 * Only allows google to grab email address
@@ -90,7 +90,7 @@ return [
 	'linkedin' => [
 		'client_id' => env('LINKEDIN_CLIENT_ID'),
 		'client_secret' => env('LINKEDIN_CLIENT_SECRET'),
-		'redirect' => env('LINKEDIN_REDIRECT'),
+		'redirect' => env('APP_URL').env('LINKEDIN_REDIRECT'),
 		'scopes' => [],
 		'with' => [],
 	],
@@ -98,7 +98,7 @@ return [
 	'twitter' => [
 		'client_id' => env('TWITTER_CLIENT_ID'),
 		'client_secret' => env('TWITTER_CLIENT_SECRET'),
-		'redirect' => env('TWITTER_REDIRECT'),
+		'redirect' => env('APP_URL').env('TWITTER_REDIRECT'),
 		'scopes' => [],
 		'with' => [],
 	],

@@ -24,7 +24,6 @@ class CreateUsersTable extends Migration {
 			$table->string('image');
 			$table->date('dob');
 			$table->string('bio');
-			$table->string('about');
 			$table->string('education_institution');
 			$table->string('education_course');
 			$table->string('organization');
