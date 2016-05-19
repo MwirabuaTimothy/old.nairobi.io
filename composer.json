@@ -15,8 +15,7 @@
         "hieu-le/active": "~2.0",
         "arcanedev/log-viewer": "~3.0",
         "spatie/laravel-backup": "^3.0",
-        "cviebrock/eloquent-sluggable": "^3.1",
-        "chrisbjr/api-guard": "3.1."
+        "cviebrock/eloquent-sluggable": "^3.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -35,7 +34,8 @@
             "App\\": "app/"
         },
         "files": [
-            "app/helpers.php"
+            "app/helpers.php",
+            "app/Http/helpers.php"
         ]
     },
     "autoload-dev": {

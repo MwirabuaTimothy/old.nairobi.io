@@ -67,5 +67,7 @@ class Kernel extends HttpKernel {
 		'access.routeNeedsRole' => \App\Http\Middleware\RouteNeedsRole::class,
 		'access.routeNeedsPermission' => \App\Http\Middleware\RouteNeedsPermission::class,
 		'apiguard' => \Chrisbjr\ApiGuard\Http\Middleware\ApiGuard::class,
+
+		'APIV1' => \App\Http\Middleware\APIV1::class,
 	];
 }
