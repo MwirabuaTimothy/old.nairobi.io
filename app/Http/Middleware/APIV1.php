@@ -4,49 +4,49 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use \App\Models\Access\User\User;
 
 /**
  * Class APIV1
  * @package App\Http\Middleware
  */
-class APIV1
-{
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string|null  $guard
-     * @return mixed
-     */
-    public function handle($request, Closure $next, $guard = null)
-    {
-        $user = null;
+class APIV1 {
+	/**
+	 * Handle an incoming request.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  \Closure  $next
+	 * @param  string|null  $guard
+	 * @return mixed
+	 */
 
-        $headers = getallheaders();
-        if(! empty($headers['api_token']))
-        {
-            $token = $headers['api_token'];
-        
+	public function handle($request, Closure $next, $guard = null) {
+		$user = null;
 
-            $user = \App\Models\Access\User\User::where('api_token', bcrypt($token))->first();
-            $user = \App\Models\Access\User\User::first();
-            if (is_null($user)) {
-                return ['success'=>false, 'error'=>'Invalid api token!'];
-            }
-            Auth::login($user); // log in the user
-        }
-        else {
-            return ['success'=>false, 'error'=>'API token not found!'];
-        }
+		$headers = getallheaders();
+		//return $request->header();
+		if ($request->hasHeader('api_token')) {
+			$token = $request->header('api_token');
+			//return $token;
 
-        $response = $next($request);
+			$user = User::where('api_token', $token)->first();
+			// $user = User::first();
+			if (is_null($user)) {
+				return ['success' => false, 'error' => 'Invalid api token!'];
+			}
+			Auth::login($user); // log in the user
+			$request->api_token = $token;
+		} else {
+			return ['success' => false, 'error' => 'API token not found!'];
+		}
 
-        return $this->format($response);
-    }
-    // the after middleware
-    public function format($response){
-        return $response;
-    }
+		$response = $next($request);
+
+		return $this->format($response);
+	}
+	// the after middleware
+	public function format($response) {
+		return $response;
+	}
 
 }

@@ -2,38 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Tour;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-use App\Http\Requests;
-
-use App\Tour;
-<<<<<<< HEAD
-use Chrisbjr\ApiGuard\Http\Controllers\ApiGuardController;
-use EllipseSynergie\ApiResponse\Contracts\Response;
-use Illuminate\Http\Request;
-
-//fd96988c8f2a2dfd53cbbd7d10a5fb5f00031f22
-class ToursController extends ApiGuardController {
-	public function __construct(Response $response) {
+class ToursController extends Controller {
+	public function __construct(Request $request, Response $response) {
+		$this->request = $request;
 		$this->response = $response;
 	}
 
-=======
-
-class ToursController extends Controller 
-{
-	public function __construct(Response $response)
-	{
-		$this->response = $response;
-	}
->>>>>>> e69194d4aab1732fc771cf5f5545a3d11fe49b51
-	public function getTours() {
+	public function index() {
+		// return $this->request;
+		// return $this->request->api_token;
+		// return bcrypt($this->request->api_token);
 		$tours = Tour::all();
 		return $tours;
 		// return success('Listing all tours', 'tours', $tours);
 	}
-	public function createTour(Request $request) {
+	public function create(Request $request) {
 		$input_data = $request->all();
 		//dd($input_data);
 

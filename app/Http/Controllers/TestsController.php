@@ -43,6 +43,9 @@ class TestsController extends Controller {
 		// return $cats;
 		return \App\Category::lists('name', 'id');
 	}
+	// public function postIndex(){
+
+	// }
 
 	public function getName() {
 		return app_name();
