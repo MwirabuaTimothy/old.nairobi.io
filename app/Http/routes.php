@@ -5,15 +5,16 @@
  */
 $router->controller('tests', 'TestsController');
 
+Route::group(['prefix' => 'api/v1'], function () {
+	Route::post('create/tour', ['uses' => 'ToursController@createTour', 'as' => 'create_tour']);
+
+	// Route::post('create/tour', ['uses' => 'ToursController@createTour', 'as' => 'create_tour']);
+	Route::get('tours', ['uses' => 'ToursController@getTours', 'as' => 'tours']);
+});
 Route::group(['middleware' => 'web'], function () {
-	
+
 	Route::get('redirect', ['uses' => 'RegistrationController@redirect', 'as' => 'redirect']);
 	Route::get('account/facebook', ['uses' => 'RegistrationController@facebook', 'as' => 'facebook']);
-
-	Route::group(['prefix' => 'api/v1'], function () {
-
-		Route::get('tours', ['uses' => 'ToursController@getTours', 'as' => 'tours']);
-	});
 
 	/**
 	 * Switch between the included languages
