@@ -47,6 +47,7 @@ class APIV1
     }
     // the after middleware
     public function format($response){
+        // do after filter stuff
         return $response;
     }
 

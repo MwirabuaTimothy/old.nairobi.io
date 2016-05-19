@@ -13,6 +13,7 @@ class FacebookMobile extends Request
      */
     public function authorize()
     {
+        // eval(\Psy\sh());
         return true;
     }
 
@@ -23,6 +24,7 @@ class FacebookMobile extends Request
      */
     public function rules()
     {
+        // eval(\Psy\sh());
         return [
             'fb_uid'                =>  'required',
             'first_name'            =>  'required',
