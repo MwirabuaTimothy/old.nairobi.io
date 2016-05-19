@@ -18,6 +18,7 @@ class ToursController extends Controller
 	public function getTours() {
 		$tours = Tour::all();
 		return $tours;
+		// return success('Listing all tours', 'tours', $tours);
 	}
 
 }
