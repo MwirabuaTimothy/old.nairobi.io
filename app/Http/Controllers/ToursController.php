@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Tour;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-use App\Http\Requests;
+class ToursController extends Controller {
+	public function __construct(Request $request, Response $response) {
 
-use App\Tour;
-
-class ToursController extends Controller 
-{
-	public function __construct(Request $request, Response $response)
-	{
 		$this->request = $request;
 		$this->response = $response;
 	}
