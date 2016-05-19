@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 use App\Http\Requests;
 
 use App\Tour;
 
-//fd96988c8f2a2dfd53cbbd7d10a5fb5f00031f22
-class ToursController {
+class ToursController extends Controller 
+{
+	public function __construct(Response $response)
+	{
+		$this->response = $response;
+	}
 	public function getTours() {
 		$tours = Tour::all();
-		//return $this->response->withCollection($tours);
-		return $this->response->withArray(['data' => $tours->toArray()]);
-		if (!$tours) {
-			throw new Exception("No tours to display");
-
-		}
+		return $tours;
 	}
 
 }
