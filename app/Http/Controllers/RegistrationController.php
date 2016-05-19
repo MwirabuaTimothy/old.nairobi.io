@@ -5,6 +5,10 @@ use App\ApiKey;
 use App\Models\Access\User\User;
 use Auth;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Http\Response;
+use Illuminate\Http\Request;
+use App\Http\Requests\FacebookMobile;
+
 
 class RegistrationController extends Controller {
 	/**
@@ -41,23 +45,71 @@ class RegistrationController extends Controller {
 			//'api_key' => $new_token->getApiKey(),
 			$existing_user->save();
 		}
-		$token = ApiKey::where('user_id', $existing_user->id)->first();
-		if ($token === null) {
-			$token = new ApiKey;
-			$token->key = $token->getApiKey();
-			$token->user_id = $existing_user->id;
-			$token->save();
-
-		}
-
-		$token->key = $token->getApiKey();
-		//$token->user_id = $existing_user->id;
-		$token->save();
 
 		Auth::login($existing_user);
 		return redirect('/');
 	}
+	/**
+	 * @param FacebookMobile $request
+	 * @return mixed
+	 */
+	// public function apiRegistration(FacebookMobile $request){
+	public function apiRegistration(Request $request){
 
-	//return redirect()->to('/')->;
+        $r = $request->json()->all();
+        // return $r;
+
+		// @todo validate request parameters
+		// required - gcm, device, platform, version, first_name, lastname, email, gender, fb_uid, birthday, bio
+
+        if(! empty($r)) 
+        {
+  
+			$arr = [];
+			$arr['api_token'] = bcrypt(md5(microtime())); // create the token;
+
+			!isset($r['gcm']) ?: $arr['gcm'] = $r['gcm'];
+			!isset($r['device']) ?: $arr['device'] = $r['device'];
+			!isset($r['platform']) ?: $arr['platform'] = $r['platform'];
+			!isset($r['version']) ?: $arr['version'] = $r['version'];
+
+	        // return $arr;
+
+            if($user = User::where('email', $r['email'])->first()){
+	            $user->update($arr);
+            }
+            else { // create user from the posted data
+				
+				!isset($r['first_name']) ?: $arr['first_name'] = $r['first_name'];
+				!isset($r['last_name']) ?: $arr['last_name'] = $r['last_name'];
+				!isset($r['email']) ?: $arr['email'] = $r['email'];
+				!isset($r['gender']) ?: $arr['gender'] = $r['gender'];
+				!isset($r['fb_uid']) ?: $arr['fb_uid'] = $r['fb_uid'];
+				!isset($r['birthday']) ?: $arr['dob'] = date("Y-m-d", strtotime($r['birthday']));
+				!isset($r['bio']) ?: $arr['bio'] = $r['bio'];
+				!isset($r['avatar']) ?: $arr['image'] = $r['avatar'];
+				!( isset($r['hometown']) && isset($r['hometown']['name']) ) ?: $arr['hometown'] = $r['hometown']['name'];
+				!( isset($r['location']) && isset($r['location']['name']) ) ?: $arr['current_city'] = $r['location']['name'];
+	        	if(isset($r['education'])) 
+	    		{
+	        		$l = $last_sch = $r['education'][count($r['education']) - 1];
+	        	}
+				!( isset($l['school']) && isset($l['school']['name']) ) ?: $arr['education_institution'] = $l['school']['name'];
+
+	            // return $arr;
+
+				$user = User::create($arr);
+            }
+            Auth::login($user); // log in the user
+            $request->api_token = $arr['api_token'];
+            return $user;
+        }
+        else {
+            // return ['success'=>false, 'error'=>'Send a json object!'];
+            return error('Send a valid json object!');
+        }
+        // @todo log the login
+	}
+
 
 }

@@ -19,6 +19,11 @@ class CreateUsersTable extends Migration {
 			$table->string('gender');
 			$table->string('fb_uid');
 			$table->string('gg_uid');
+            $table->string('gcm');
+            $table->string('device');
+            $table->string('platform');
+            $table->string('version');
+            $table->string('ip_address');
 			$table->string('zip');
 			$table->string('phone');
 			$table->string('image');

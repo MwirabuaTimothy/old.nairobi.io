@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use \App\Models\Access\User\User;
 
 /**
  * Class APIV1
@@ -26,15 +27,15 @@ class APIV1
         $headers = getallheaders();
         if(! empty($headers['api_token']))
         {
-            $token = $headers['api_token'];
-        
+            $token = $headers['api_token'];        
 
-            $user = \App\Models\Access\User\User::where('api_token', bcrypt($token))->first();
-            $user = \App\Models\Access\User\User::first();
+            $user = User::where('api_token', $token)->first();
+            // $user = User::first();
             if (is_null($user)) {
                 return ['success'=>false, 'error'=>'Invalid api token!'];
             }
             Auth::login($user); // log in the user
+            $request->api_token = $token;
         }
         else {
             return ['success'=>false, 'error'=>'API token not found!'];
