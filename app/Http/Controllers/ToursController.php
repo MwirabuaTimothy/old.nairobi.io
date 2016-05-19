@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 
 class ToursController extends Controller {
 	public function __construct(Request $request, Response $response) {
+
 		$this->request = $request;
 		$this->response = $response;
 	}

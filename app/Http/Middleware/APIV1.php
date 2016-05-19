@@ -10,6 +10,7 @@ use \App\Models\Access\User\User;
  * Class APIV1
  * @package App\Http\Middleware
  */
+
 class APIV1 {
 	/**
 	 * Handle an incoming request.
