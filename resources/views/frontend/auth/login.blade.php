@@ -45,7 +45,7 @@
                             </div><!--col-md-6-->
                             <div class="col-md-6 col-md-offset-4" style="margin-top: 8px">
                             <!-- <a href="https://developers.facebook.com/docs/plugins/login-button/"></a> -->
-                                <a href="{{URL::route('redirect')}}" class="btn btn-primary" style="background-color: #3b5998"><i class="fa fa-facebook"></i>
+                                <a href="{{URL::route('facebook.redirect')}}" class="btn btn-primary" style="background-color: #3b5998"><i class="fa fa-facebook"></i>
                                         Log In via Facebook </a>
                             </div>
                         </div><!--form-group-->

@@ -11,7 +11,8 @@ Route::group(['prefix' => 'api/v1'], function () {
 	Route::group(['middleware' => 'APIV1'], function () {
 
 		Route::group(['prefix' => 'tours'], function () {
-			Route::get('/', ['uses' => 'ToursController@getTours', 'as' => 'tours']);
+			Route::get('/', ['uses' => 'ToursController@index', 'as' => 'tours.api']);
+			Route::post('/', ['uses' => 'ToursController@create', 'as' => 'tour.create.api']);
 		});
 		Route::group(['prefix' => 'messages'], function () {
 			Route::get('/', ['uses' => 'MessagesController@index', 'as' => 'messages']);
@@ -31,25 +32,16 @@ Route::group(['prefix' => 'api/v1'], function () {
  */
 $router->controller('tests', 'TestsController');
 
-<<<<<<< HEAD
-Route::group(['prefix' => 'api/v1'], function () {
-	Route::post('create/tour', ['uses' => 'ToursController@createTour', 'as' => 'create_tour']);
+/**
+ * Tours resource
+ */
+$router->resource('tours', 'ToursController');
 
-	// Route::post('create/tour', ['uses' => 'ToursController@createTour', 'as' => 'create_tour']);
-	Route::get('tours', ['uses' => 'ToursController@getTours', 'as' => 'tours']);
-});
-=======
-
->>>>>>> e69194d4aab1732fc771cf5f5545a3d11fe49b51
 Route::group(['middleware' => 'web'], function () {
 
-	Route::get('redirect', ['uses' => 'RegistrationController@redirect', 'as' => 'redirect']);
+	Route::get('account/facebook/api', ['uses' => 'RegistrationController@redirect', 'as' => 'facebook.redirect']);
 	Route::get('account/facebook', ['uses' => 'RegistrationController@facebook', 'as' => 'facebook']);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e69194d4aab1732fc771cf5f5545a3d11fe49b51
 	/**
 	 * Switch between the included languages
 	 * Sets the specified locale to the session
