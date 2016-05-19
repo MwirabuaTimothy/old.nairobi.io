@@ -30,9 +30,9 @@ class CreateUsersTable extends Migration {
 			$table->string('hometown');
 			$table->string('current_city');
 			$table->string('national_id');
-			$table->string('api_key');
 			$table->string('passport');
 			$table->string('password')->nullable();
+			$table->string('api_token');
 			$table->string('confirmation_code');
 			$table->boolean('confirmed')->default(config('access.users.confirm_email') ? false : true);
 			$table->boolean('phone_verified');

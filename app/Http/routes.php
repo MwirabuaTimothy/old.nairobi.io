@@ -1,19 +1,37 @@
 <?php
 
 /**
+ * API Version 1
+ */
+
+Route::group(['prefix' => 'api/v1', 'middleware' => 'APIV1'], function () {
+
+	Route::group(['prefix' => 'tours'], function () {
+		Route::get('/', ['uses' => 'ToursController@getTours', 'as' => 'tours']);
+	});
+	Route::group(['prefix' => 'messages'], function () {
+		Route::get('/', ['uses' => 'MessagesController@index', 'as' => 'messages']);
+	});
+	// Route::get('test', ['uses' => function(Request $request) {
+	// 	return $request->user;
+	// }, 'as' => 'test']);
+	// Route::get('test', ['uses' => function() {
+	// 	return auth()->user();
+	// }, 'as' => 'test']);
+});
+
+
+/**
  * Testing controller
  */
 $router->controller('tests', 'TestsController');
+
 
 Route::group(['middleware' => 'web'], function () {
 	
 	Route::get('redirect', ['uses' => 'RegistrationController@redirect', 'as' => 'redirect']);
 	Route::get('account/facebook', ['uses' => 'RegistrationController@facebook', 'as' => 'facebook']);
 
-	Route::group(['prefix' => 'api/v1'], function () {
-
-		Route::get('tours', ['uses' => 'ToursController@getTours', 'as' => 'tours']);
-	});
 
 	/**
 	 * Switch between the included languages

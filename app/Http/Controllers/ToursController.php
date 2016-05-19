@@ -1,11 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+
 use App\Tour;
-use Chrisbjr\ApiGuard\Http\Controllers\ApiGuardController;
 
 //fd96988c8f2a2dfd53cbbd7d10a5fb5f00031f22
-class ToursController extends ApiGuardController {
+class ToursController {
 	public function getTours() {
 		$tours = Tour::all();
 		//return $this->response->withCollection($tours);
