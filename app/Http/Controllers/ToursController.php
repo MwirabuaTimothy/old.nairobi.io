@@ -1,7 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
+use App\Http\Requests;
+
 use App\Tour;
+<<<<<<< HEAD
 use Chrisbjr\ApiGuard\Http\Controllers\ApiGuardController;
 use EllipseSynergie\ApiResponse\Contracts\Response;
 use Illuminate\Http\Request;
@@ -12,14 +19,19 @@ class ToursController extends ApiGuardController {
 		$this->response = $response;
 	}
 
+=======
+
+class ToursController extends Controller 
+{
+	public function __construct(Response $response)
+	{
+		$this->response = $response;
+	}
+>>>>>>> e69194d4aab1732fc771cf5f5545a3d11fe49b51
 	public function getTours() {
 		$tours = Tour::all();
-		//return $this->response->withCollection($tours);
-		return $this->response->withArray(['data' => $tours->toArray()]);
-		if (!$tours) {
-			throw new Exception("No tours to display");
-
-		}
+		return $tours;
+		// return success('Listing all tours', 'tours', $tours);
 	}
 	public function createTour(Request $request) {
 		$input_data = $request->all();
