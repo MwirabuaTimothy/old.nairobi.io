@@ -55,6 +55,7 @@ class RegistrationController extends Controller {
 
 	public function apiRegistration(Request $request) {
 
+		// eval(\Psy\sh());
 		$r = $request->json()->all();
 		// return $r;
 

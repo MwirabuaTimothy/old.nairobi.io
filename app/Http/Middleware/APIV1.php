@@ -24,7 +24,6 @@ class APIV1 {
 	public function handle($request, Closure $next, $guard = null) {
 		$user = null;
 
-		$headers = getallheaders();
 		//return $request->header();
 		if ($request->hasHeader('api_token')) {
 			$token = $request->header('api_token');
@@ -47,7 +46,8 @@ class APIV1 {
 	}
 	// the after middleware
 	public function format($response) {
-		return $response;
+		// do things after filter stuff
+        return $response;
 	}
 
 }
