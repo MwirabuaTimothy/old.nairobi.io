@@ -32,21 +32,21 @@ class APIV1 {
 			$user = User::where('api_token', $token)->first();
 			// $user = User::first();
 			if (is_null($user)) {
-				return ['success' => false, 'error' => 'Invalid api token!'];
+				return error('Invalid api token!');
 			}
 			Auth::login($user); // log in the user
 			$request->api_token = $token;
 		} else {
-			return ['success' => false, 'error' => 'API token not found!'];
+			return error('API token not found!');
 		}
 
 		$response = $next($request);
 
-		return $this->format($response);
-	}
+        return $this->format($response);
+    }
 	// the after middleware
 	public function format($response) {
-		// do things after filter stuff
+		// do things here before presenting the response
         return $response;
 	}
 

@@ -50,8 +50,6 @@ class AppServiceProvider extends ServiceProvider
             /**
              * Load third party local providers and facades
              */
-            $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
-            $loader->alias('Debugbar', \Barryvdh\Debugbar\Facade::class);
 
             $this->app->register(\Laracasts\Generators\GeneratorsServiceProvider::class);
         }

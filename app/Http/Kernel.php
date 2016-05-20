@@ -69,5 +69,6 @@ class Kernel extends HttpKernel {
 		'apiguard' => \Chrisbjr\ApiGuard\Http\Middleware\ApiGuard::class,
 
 		'APIV1' => \App\Http\Middleware\APIV1::class,
+		'JsonApiMiddleware' => \App\Http\Middleware\JsonApiMiddleware::class,
 	];
 }

@@ -21,6 +21,8 @@ class TestsController extends Controller {
 		// return DB::table('user_languages')->get();
 		// return date('now')->format('d M Y');
 
+		// return time();
+		return microtime(true)*100;
 		return date('d M Y');
 		// return \App\Carbon::now()->format('d M Y');
 		// $group->members()->attach(1);
