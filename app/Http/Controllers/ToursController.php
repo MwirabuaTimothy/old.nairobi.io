@@ -67,4 +67,12 @@ class ToursController extends Controller {
 
 	}
 
+	public function show($id) {
+		$tour = Tour::where('id', $id)->first();
+		if ($tour) {
+			return 'No such tour';
+		}
+		return $tour;
+	}
+
 }

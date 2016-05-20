@@ -5,14 +5,15 @@
  */
 
 Route::group(['prefix' => 'api/v1'], function () {
-	
+
 	Route::post('/account/facebook', ['uses' => 'RegistrationController@apiRegistration', 'as' => 'api-reg.fb']);
-	
+
 	Route::group(['middleware' => 'APIV1'], function () {
 
 		Route::group(['prefix' => 'tours'], function () {
 			Route::get('/', ['uses' => 'ToursController@index', 'as' => 'tours.api']);
 			Route::post('/', ['uses' => 'ToursController@create', 'as' => 'tour.create.api']);
+			Route::get('/{tour}', ['uses' => 'ToursController@show', 'as' => 'tour.show_source().api']);
 		});
 		Route::group(['prefix' => 'messages'], function () {
 			Route::get('/', ['uses' => 'MessagesController@index', 'as' => 'messages']);
@@ -25,7 +26,6 @@ Route::group(['prefix' => 'api/v1'], function () {
 		// }, 'as' => 'test']);
 	});
 });
-
 
 /**
  * Testing controller
