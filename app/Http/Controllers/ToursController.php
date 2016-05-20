@@ -101,5 +101,11 @@ class ToursController extends Controller {
 			return ['success' => true, 'message' => 'Succesfully updated your tour'];
 		}
 	}
+	public function destroy($id) {
+		$tour = Tour::find($id)->delete();
+		if ($tour) {
+			return ['success' => true, 'message' => 'Tour deleted'];
+		}
+	}
 
 }
