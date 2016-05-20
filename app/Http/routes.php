@@ -1,12 +1,15 @@
 <?php
-
 /**
  * API Version 1
  */
 
 Route::group(['prefix' => 'api/v1'], function () {
 
-	Route::post('/account/facebook', ['uses' => 'RegistrationController@apiRegistration', 'as' => 'api-reg.fb']);
+	// Route::post('/account/facebook', ['uses' => function(Request $request) {
+	// 	return $request->json()->all();
+	// }, 'as' => 'api-reg.fb']);
+	Route::post('/account/facebook', ['middleware' => 'JsonApiMiddleware',
+		'uses' => 'RegistrationController@apiRegistration', 'as' => 'api-reg.fb']);
 
 	Route::group(['middleware' => 'APIV1'], function () {
 
@@ -23,9 +26,9 @@ Route::group(['prefix' => 'api/v1'], function () {
 		// Route::get('test', ['uses' => function(Request $request) {
 		// 	return $request->user;
 		// }, 'as' => 'test']);
-		// Route::get('test', ['uses' => function() {
-		// 	return auth()->user();
-		// }, 'as' => 'test']);
+		Route::get('test', ['uses' => function () {
+			return auth()->user();
+		}, 'as' => 'test']);
 	});
 });
 

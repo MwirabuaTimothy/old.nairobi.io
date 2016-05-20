@@ -51,13 +51,11 @@ class RegistrationController extends Controller {
 	 * @param FacebookMobile $request
 	 * @return mixed
 	 */
-	// public function apiRegistration(FacebookMobile $request){
-
-	public function apiRegistration(Request $request) {
+	public function apiRegistration(FacebookMobile $request){
 
 		// eval(\Psy\sh());
 		$r = $request->json()->all();
-		// return $r;
+		return $r;
 
 		// @todo validate request parameters
 		// required - gcm, device, platform, version, first_name, lastname, email, gender, fb_uid, birthday, bio
@@ -65,20 +63,21 @@ class RegistrationController extends Controller {
 		if (!empty($r)) {
 
 			$arr = [];
-			$arr['api_token'] = bcrypt(md5(microtime())); // create the token;
 
+			// fields that we need to update on every log in:
+			$arr['api_token'] = bcrypt(md5(microtime())); // create the token;
 			!isset($r['gcm']) ?: $arr['gcm'] = $r['gcm'];
 			!isset($r['device']) ?: $arr['device'] = $r['device'];
 			!isset($r['platform']) ?: $arr['platform'] = $r['platform'];
 			!isset($r['version']) ?: $arr['version'] = $r['version'];
 
-			// return $arr;
 
 			if ($user = User::where('email', $r['email'])->first()) {
+				// update existing user
 				$user->update($arr);
 			} else {
-				// create user from the posted data
 
+				// create user from the posted data
 				!isset($r['first_name']) ?: $arr['first_name'] = $r['first_name'];
 				!isset($r['last_name']) ?: $arr['last_name'] = $r['last_name'];
 				!isset($r['email']) ?: $arr['email'] = $r['email'];
@@ -94,7 +93,6 @@ class RegistrationController extends Controller {
 				}
 				!(isset($l['school']) && isset($l['school']['name'])) ?: $arr['education_institution'] = $l['school']['name'];
 
-				// return $arr;
 
 				$user = User::create($arr);
 			}
