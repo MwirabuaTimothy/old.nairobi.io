@@ -22,6 +22,12 @@ class TourRequest extends Request {
 	public function rules() {
 		return [
 			'title' => 'required',
+			'description' => 'required',
+			'available_from' => 'required',
+			'available_to' => 'required',
+			'image' => 'required|mimes:jpeg,jpg,png',
+			'rate' => 'required',
+			'rules' => 'required',
 			//
 		];
 	}

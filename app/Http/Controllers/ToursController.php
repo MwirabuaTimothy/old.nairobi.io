@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TourRequest;
 use App\Tour;
 use Auth;
 use Illuminate\Http\Request;
@@ -22,8 +23,8 @@ class ToursController extends Controller {
 		return $tours;
 		// return success('Listing all tours', 'tours', $tours);
 	}
-	public function create() {
-		$input_data = $this->request->all();
+	public function create(TourRequest $request) {
+		$input_data = $request->all();
 		//dd($input_data);
 
 		if (!$input_data) {
