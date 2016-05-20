@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TourRequest;
+use App\Http\Requests\ToursRequest;
 use App\Tour;
 use Auth;
 use Illuminate\Http\Request;
@@ -23,7 +23,7 @@ class ToursController extends Controller {
 		return $tours;
 		// return success('Listing all tours', 'tours', $tours);
 	}
-	public function create(TourRequest $request) {
+	public function create(ToursRequest $request) {
 		$input_data = $request->all();
 		//dd($input_data);
 
@@ -76,9 +76,10 @@ class ToursController extends Controller {
 		}
 		return $tour;
 	}
-	public function update($id) {
-		$input_data = $this->request->all();
-		//dd($input_data);
+	public function update(ToursRequest $request, $id) {
+		$input_data = $request->all();
+
+		//dd($input_data['image']);
 		$image = $input_data['image']; //getting image
 
 		$destinationPath = 'tours/image'; // upload path
