@@ -1,13 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\FacebookMobile;
 use App\Models\Access\User\User;
 use Auth;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
-use Illuminate\Http\Response;
-use App\Http\Requests\FacebookMobile;
-
 
 class RegistrationController extends Controller {
 	/**
@@ -55,13 +53,12 @@ class RegistrationController extends Controller {
 	 */
 	public function apiRegistration(FacebookMobile $request){
 
-        // eval(\Psy\sh());
+		// eval(\Psy\sh());
 		$r = $request->json()->all();
 		return $r;
 
 		// @todo validate request parameters
 		// required - gcm, device, platform, version, first_name, lastname, email, gender, fb_uid, birthday, bio
-
 
 		if (!empty($r)) {
 
