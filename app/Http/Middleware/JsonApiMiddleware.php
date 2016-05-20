@@ -5,10 +5,6 @@ namespace App\Http\Middleware;
 use Closure;
 
 class JsonApiMiddleware {
-	protected $methods = [
-		'POST', 'PUT', 'PATCH',
-	];
-
 	/**
 	 * Handle an incoming request.
 	 *
@@ -18,7 +14,7 @@ class JsonApiMiddleware {
 	 * @return mixed
 	 */
 	public function handle($request, Closure $next) {
-		if (in_array($request->getMethod(), $this->$methods)) {
+		if (in_array($request->getMethod(), ['POST', 'PUT', 'PATCH'])) {
 			$request->merge((array) json_decode($request->getContent()), true); // merging json objects that hacve been posted
 		}
 
