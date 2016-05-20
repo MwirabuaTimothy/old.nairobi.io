@@ -57,13 +57,13 @@ class ToursController extends Controller {
 
 			$existing_tour->save();
 			if (!$existing_tour->save()) {
-				return 'Could not create a new tour';
+				return error('Could not create a new tour');
 
 			}
-			return 'successfully created a new tour';
+			return success('Successfully created a new tour');
 
 		}
-		return 'You already created the same tour';
+		return error('You already created the same tour');
 
 	}
 

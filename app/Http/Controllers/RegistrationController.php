@@ -55,7 +55,7 @@ class RegistrationController extends Controller {
 
 		// eval(\Psy\sh());
 		$r = $request->json()->all();
-		return $r;
+		// return $r;
 
 		// @todo validate request parameters
 		// required - gcm, device, platform, version, first_name, lastname, email, gender, fb_uid, birthday, bio
