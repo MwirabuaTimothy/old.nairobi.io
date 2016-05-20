@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tour;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -21,33 +22,48 @@ class ToursController extends Controller {
 		return $tours;
 		// return success('Listing all tours', 'tours', $tours);
 	}
-	public function create(Request $request) {
-		$input_data = $request->all();
+	public function create() {
+		$input_data = $this->request->all();
 		//dd($input_data);
 
 		if (!$input_data) {
-			return $this->response->errorNotFound('No data Input');
+			return 'No data Input';
 		}
-		$existing_tour = Tour::where('title', $input_data['title'])->first();
+		$image = $input_data['image']; //getting image
+
+		$destinationPath = 'tours/image'; // upload path
+		$extension = $image->getClientOriginalExtension();
+
+		//give file a microtime name, limit name to 12 characters
+		$fileName = substr(microtime(true) * 100, 0, 12) . '.' . $extension;
+
+		//move file to folder
+		$image->move($destinationPath, $fileName);
+
+		$user = Auth::user()->id; //logged in user
+		//dd($user);
+		$existing_tour = Tour::where('title', $input_data['title'])->where('user_id', $user)->first();
 		if ($existing_tour === null) {
 
 			$existing_tour = new Tour;
 			$existing_tour->title = $input_data['title'];
 			$existing_tour->description = $input_data['description'];
-			//$existing_tour->user_id = Auth::user()->id;
+			$existing_tour->user_id = $user;
 			$existing_tour->available_from = $input_data['available_from'];
 			$existing_tour->available_to = $input_data['available_to'];
-			$existing_tour->image = $input_data['image'];
+			$existing_tour->image = $destinationPath . '/' . $fileName;
 			$existing_tour->rate = $input_data['rate'];
 			$existing_tour->rules = $input_data['rules'];
 
 			$existing_tour->save();
-			if (!$existing_tour->save) {
-				return $this->response->errorNotFound('Could not create a new tour');
+			if (!$existing_tour->save()) {
+				return 'Could not create a new tour';
 
 			}
+			return 'successfully created a new tour';
 
 		}
+		return 'You already created the same tour';
 
 	}
 
