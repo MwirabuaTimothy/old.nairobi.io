@@ -27,7 +27,7 @@ class ToursController extends Controller {
 		//dd($input_data);
 
 		if (!$input_data) {
-			return 'No data Input';
+			return error('No data Input!');
 		}
 		$image = $input_data['image']; //getting image
 
@@ -57,20 +57,20 @@ class ToursController extends Controller {
 
 			$existing_tour->save();
 			if (!$existing_tour->save()) {
-				return 'Could not create a new tour';
+				return error('Could not create a new tour!');
 
 			}
-			return 'successfully created a new tour';
+			return ['success' => true, 'message' => 'successfully created a new tour'];
 
 		}
-		return 'You already created the same tour';
+		return error('You already created the same tour!');
 
 	}
 
 	public function show($id) {
 		$tour = Tour::where('id', $id)->first();
-		if ($tour) {
-			return 'No such tour';
+		if (!$tour) {
+			return error('The tour does not exist!');
 		}
 		return $tour;
 	}
