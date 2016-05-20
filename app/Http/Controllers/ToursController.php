@@ -74,5 +74,32 @@ class ToursController extends Controller {
 		}
 		return $tour;
 	}
+	public function update($id) {
+		$input_data = $this->request->all();
+		//dd($input_data);
+		$image = $input_data['image']; //getting image
+
+		$destinationPath = 'tours/image'; // upload path
+		$extension = $image->getClientOriginalExtension();
+
+		//give file a microtime name, limit name to 12 characters
+		$fileName = substr(microtime(true) * 100, 0, 12) . '.' . $extension;
+
+		//move file to folder
+		$image->move($destinationPath, $fileName);
+		$tour = Tour::find($id)->update([
+			'title' => $input_data['title'],
+			'description' => $input_data['description'],
+			'available_from' => $input_data['available_from'],
+			'available_to' => $input_data['available_to'],
+			'image' => $destinationPath . '/' . $fileName,
+			'rate' => $input_data['rate'],
+			'rules' => $input_data['rules'],
+
+		]);
+		if ($tour) {
+			return ['success' => true, 'message' => 'Succesfully updated your tour'];
+		}
+	}
 
 }
