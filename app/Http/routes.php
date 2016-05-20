@@ -1,22 +1,24 @@
 <?php
-use Illuminate\Http\Request;
 /**
  * API Version 1
  */
 
 Route::group(['prefix' => 'api/v1'], function () {
-	
+
 	// Route::post('/account/facebook', ['uses' => function(Request $request) {
 	// 	return $request->json()->all();
 	// }, 'as' => 'api-reg.fb']);
-	Route::post('/account/facebook', ['middleware' => 'JsonApiMiddleware', 
+	Route::post('/account/facebook', ['middleware' => 'JsonApiMiddleware',
 		'uses' => 'RegistrationController@apiRegistration', 'as' => 'api-reg.fb']);
-	
+
 	Route::group(['middleware' => 'APIV1'], function () {
 
 		Route::group(['prefix' => 'tours'], function () {
 			Route::get('/', ['uses' => 'ToursController@index', 'as' => 'tours.api']);
 			Route::post('/', ['uses' => 'ToursController@create', 'as' => 'tour.create.api']);
+			Route::get('/{tour}', ['uses' => 'ToursController@show', 'as' => 'tour.show.api']);
+			Route::post('/update/{tour}', ['uses' => 'ToursController@update', 'as' => 'tour.update.api']);
+			Route::get('/delete/{tour}', ['uses' => 'ToursController@destroy', 'as' => 'tour.delete.api']);
 		});
 		Route::group(['prefix' => 'messages'], function () {
 			Route::get('/', ['uses' => 'MessagesController@index', 'as' => 'messages']);
@@ -24,12 +26,11 @@ Route::group(['prefix' => 'api/v1'], function () {
 		// Route::get('test', ['uses' => function(Request $request) {
 		// 	return $request->user;
 		// }, 'as' => 'test']);
-		Route::get('test', ['uses' => function() {
+		Route::get('test', ['uses' => function () {
 			return auth()->user();
 		}, 'as' => 'test']);
 	});
 });
-
 
 /**
  * Testing controller

@@ -27,7 +27,7 @@ class ToursController extends Controller {
 		//dd($input_data);
 
 		if (!$input_data) {
-			return 'No data Input';
+			return error('No data Input!');
 		}
 		$image = $input_data['image']; //getting image
 
@@ -57,14 +57,56 @@ class ToursController extends Controller {
 
 			$existing_tour->save();
 			if (!$existing_tour->save()) {
-				return error('Could not create a new tour');
+
+				return error('Could not create a new tour!', 'tours/create');
 
 			}
-			return success('Successfully created a new tour');
+			return success('Successfully created the tour', 'tours');
 
 		}
-		return error('You already created the same tour');
+		return error('You already created the same tour!', 'tours/create');
 
+	}
+
+	public function show($id) {
+		$tour = Tour::where('id', $id)->first();
+		if (!$tour) {
+			return error('The tour does not exist!');
+		}
+		return $tour;
+	}
+	public function update($id) {
+		$input_data = $this->request->all();
+		//dd($input_data);
+		$image = $input_data['image']; //getting image
+
+		$destinationPath = 'tours/image'; // upload path
+		$extension = $image->getClientOriginalExtension();
+
+		//give file a microtime name, limit name to 12 characters
+		$fileName = substr(microtime(true) * 100, 0, 12) . '.' . $extension;
+
+		//move file to folder
+		$image->move($destinationPath, $fileName);
+		$tour = Tour::find($id)->update([
+			'title' => $input_data['title'],
+			'description' => $input_data['description'],
+			'available_from' => $input_data['available_from'],
+			'available_to' => $input_data['available_to'],
+			'image' => $destinationPath . '/' . $fileName,
+			'rate' => $input_data['rate'],
+			'rules' => $input_data['rules'],
+
+		]);
+		if ($tour) {
+			return ['success' => true, 'message' => 'Succesfully updated your tour'];
+		}
+	}
+	public function destroy($id) {
+		$tour = Tour::find($id)->delete();
+		if ($tour) {
+			return ['success' => true, 'message' => 'Tour deleted'];
+		}
 	}
 
 }
