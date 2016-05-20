@@ -3,8 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tour extends Model {
+	use SoftDeletes;
+	protected $dates = ['deleted_at'];
+	protected $fillable = ['title', 'description', 'available_from', 'available_to', 'image', 'rate', 'rules'];
 
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\belongsTo
