@@ -46,31 +46,31 @@ class ToursController extends Controller {
 		$existing_tour = Tour::where('title', $input_data['title'])->where('user_id', $user)->first();
 		if ($existing_tour === null) {
 
-			$existing_tour = new Tour;
-			$existing_tour->title = $input_data['title'];
-			$existing_tour->description = $input_data['description'];
-			$existing_tour->user_id = $user;
-			$existing_tour->available_from = $input_data['available_from'];
-			$existing_tour->available_to = $input_data['available_to'];
-			$existing_tour->image = $destinationPath . '/' . $fileName;
-			$existing_tour->rate = $input_data['rate'];
-			$existing_tour->rules = $input_data['rules'];
+			$tour = new Tour;
+			$tour->title = $input_data['title'];
+			$tour->description = $input_data['description'];
+			$tour->user_id = $user;
+			$tour->available_from = $input_data['available_from'];
+			$tour->available_to = $input_data['available_to'];
+			$tour->image = $destinationPath . '/' . $fileName;
+			$tour->rate = $input_data['rate'];
+			$tour->rules = $input_data['rules'];
 
-			$existing_tour->save();
-			if (!$existing_tour->save()) {
+			$tour->save();
+			if (!$tour->save()) {
 
 				return error('Could not create a new tour!', 'tours/create');
 
 			}
-			return success('Successfully created the tour', 'tours');
+			return success('Successfully created the tour', 'tours', $tour);
 
 		}
-		return error('You already created the same tour!', 'tours/create');
+		return error('You have a tour by the same name!', 'tours/create');
 
 	}
 
 	public function show($id) {
-		$tour = Tour::where('id', $id)->first();
+		$tour = Tour::firstOrFail($id);
 		if (!$tour) {
 			return error('The tour does not exist!');
 		}
@@ -90,7 +90,8 @@ class ToursController extends Controller {
 
 		//move file to folder
 		$image->move($destinationPath, $fileName);
-		$tour = Tour::find($id)->update([
+		$tour = Tour::findOrFail($id);
+		$tour->update([
 			'title' => $input_data['title'],
 			'description' => $input_data['description'],
 			'available_from' => $input_data['available_from'],
@@ -101,13 +102,14 @@ class ToursController extends Controller {
 
 		]);
 		if ($tour) {
-			return ['success' => true, 'message' => 'Succesfully updated your tour'];
+			return success('Succesfully updated your tour', 'tours', $tour);
 		}
 	}
 	public function destroy($id) {
-		$tour = Tour::find($id)->delete();
+		$tour = Tour::findOrFail($id);
+		$tour->delete();
 		if ($tour) {
-			return ['success' => true, 'message' => 'Tour deleted'];
+			return success('Tour deleted', 'tours');
 		}
 	}
 

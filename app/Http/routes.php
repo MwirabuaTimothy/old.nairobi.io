@@ -16,9 +16,9 @@ Route::group(['prefix' => 'api/v1'], function () {
 		Route::group(['prefix' => 'tours'], function () {
 			Route::get('/', ['uses' => 'ToursController@index', 'as' => 'tours.api']);
 			Route::post('/', ['uses' => 'ToursController@create', 'as' => 'tour.create.api']);
-			Route::get('/{tour}', ['uses' => 'ToursController@show', 'as' => 'tour.show.api']);
-			Route::post('/update/{tour}', ['uses' => 'ToursController@update', 'as' => 'tour.update.api']);
-			Route::get('/delete/{tour}', ['uses' => 'ToursController@destroy', 'as' => 'tour.delete.api']);
+			Route::get('/{tour_id}', ['uses' => 'ToursController@show', 'as' => 'tour.show.api']); // @todo - change to slug
+			Route::post('{tour_id}', ['uses' => 'ToursController@update', 'as' => 'tour.update.api']);
+			Route::get('/{tour_id}/delete', ['uses' => 'ToursController@destroy', 'as' => 'tour.delete.api']);
 		});
 		Route::group(['prefix' => 'messages'], function () {
 			Route::get('/', ['uses' => 'MessagesController@index', 'as' => 'messages']);
