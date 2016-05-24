@@ -11,7 +11,7 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{!! route('frontend.index') !!}">
+            <a class="navbar-brand" href="{!! route('frontend.home') !!}">
                 {!! app_name() !!}
             </a>
         </div><!--navbar-header-->
@@ -20,7 +20,7 @@
 
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li>{!! link_to_route('frontend.index', trans('navs.frontend.home')) !!}</li>
+                <li>{!! link_to_route('frontend.home', trans('navs.frontend.home')) !!}</li>
                 <li>{!! link_to_route('frontend.macros', trans('navs.frontend.macros')) !!}</li>
             </ul>
 

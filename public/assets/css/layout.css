@@ -1,0 +1,531 @@
+/* #Media Queries
+================================================== */
+
+	@media screen and (min-width: 993px) and (max-width: 1200px) {
+		
+		/* ---------------------------------------------------------------------- */
+		/*	Header
+		/* ---------------------------------------------------------------------- */
+
+			/* -------------------------------------------------- */
+			/*	Main Navigation
+			/* -------------------------------------------------- */
+
+			.navigation > ul > li > a { padding: 25px 10px 31px; }
+			
+		/* -------------------------------------------------- */
+		/* Slides
+		/* -------------------------------------------------- */
+		
+			.header-text h1 { font-size: 80px; }
+			
+		/* ---------------------------------------------------------------------- */
+		/*	Portfolio
+		/* ---------------------------------------------------------------------- */	
+			
+			/* -------------------------------------------------- */
+			/*	Portfolio Items
+			/* -------------------------------------------------- */
+
+				ul.portfolio-items li { width: 25%; }
+				
+	}
+
+	/* Smaller than standard 992 (devices and browsers) */
+	@media only screen and (max-width: 992px) {
+		
+		/* ---------------------------------------------------------------------- */
+		/*	Header
+		/* ---------------------------------------------------------------------- */
+		
+			/* -------------------------------------------------- */
+			/*	Main Navigation
+			/* -------------------------------------------------- */
+
+			.responsive-nav-button {
+				display: inline-block;
+				vertical-align: middle;
+			}	
+
+			#header #navigation { 
+				/*position: absolute;*/
+				z-index: 999;
+				right: 0;
+				left: 0;
+				top: 100%;
+				display: none;
+				overflow: hidden;
+				padding-top: 0;
+				width: 100%;
+				background-color: #fff;
+				
+				-webkit-border-radius: 3px;
+						border-radius: 3px;
+			}
+			
+			.navigation ul li {
+				display: inline-block;
+				float: left;
+				margin: 0px;
+				padding: 1px;
+				vertical-align: top;
+				width: 25%;
+			}
+
+				.navigation ul li > a {
+					padding: 10px 15px;
+					background-color: #00c2a9;
+					color: #fff;
+					cursor: pointer;
+					font-weight: 400;
+					text-align: center;
+				}
+				
+				.navigation ul a:hover,
+				.navigation ul .current-menu-item > a,
+				.navigation ul .current-menu-parent > a,
+				.navigation ul .current-menu-ancestor > a,
+				.navigation ul .current_page_item > a,
+				.navigation ul .current_page_parent > a,
+				.navigation ul .current_page_ancestor > a { 
+					background-color: #fff;
+					 color: #00c2a9;
+				}
+
+				.navigation ul a {
+					-webkit-border-radius: 3px;
+							border-radius: 3px;
+				}
+				
+				.header-shrink .navigation > ul > li > a:after { color: #fff; }
+				
+				.navigation ul a:hover:after,
+				.navigation ul .current-menu-item > a:after,
+				.navigation ul .current-menu-parent > a:after,
+				.navigation ul .current-menu-ancestor > a:after,
+				.navigation ul .current_page_item > a:after,
+				.navigation ul .current_page_parent > a:after,
+				.navigation ul .current_page_ancestor > a:after { color: #00c2a9; }
+
+			/* Dropdown */
+			
+			.navigation ul ul {
+				position: relative;
+				display: none;
+				padding: 2px 10% 2px 10%;
+				width: 100%;
+				background-color: #ececec;
+				-webkit-border-radius: 3px;
+						border-radius: 3px;  
+			}
+
+				.navigation ul ul a:hover,
+				.navigation ul ul .current-menu-item > a,
+				.navigation ul ul .current-menu-parent > a,
+				.navigation ul ul .current-menu-ancestor > a,
+				.navigation ul ul .current_page_item > a,
+				.navigation ul ul .current_page_parent > a,
+				.navigation ul ul .current_page_ancestor > a { color: #00c2a9; }
+				
+		/* -------------------------------------------------- */
+		/* Slides
+		/* -------------------------------------------------- */
+		
+			.header-text h1 { font-size: 50px; }
+			#creed{ display: inline-block; }
+
+	}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 992px) {
+		
+		/* ---------------------------------------------------------------------- */
+		/*	Section
+		/* ---------------------------------------------------------------------- */
+		
+			/* -------------------------------------------------- */
+			/* Video Full Container
+			/* -------------------------------------------------- */	
+
+				.video-title { font-size: 55px; }
+		
+			/* -------------------------------------------------- */
+			/* Counter Box
+			/* -------------------------------------------------- */			
+
+				.counter { width: 100px; }
+				
+					.counter .count {
+						height: 100px;
+						font-size: 52px;
+						line-height: 100px;
+					}
+					
+			/* -------------------------------------------------- */
+			/* Twitter 
+			/* -------------------------------------------------- */	
+
+				.tweet .tweets .tweet_text { padding: 0 5% 30px; }	
+				
+		/* ---------------------------------------------------------------------- */
+		/*	Portfolio
+		/* ---------------------------------------------------------------------- */	
+
+			/* -------------------------------------------------- */
+			/*	Portfolio Filter
+			/* -------------------------------------------------- */
+
+				.portfolio-filter li { padding: 3px 15px; }
+				
+			/* -------------------------------------------------- */
+			/*	Portfolio Items
+			/* -------------------------------------------------- */
+
+				ul.portfolio-items li { width: 33.33333333333333%; }
+
+			/* -------------------------------------------------- */
+			/*	Portfolio Single
+			/* -------------------------------------------------- */
+
+			/* Project Meta */
+			
+			.project-meta { margin-bottom: 10px; }
+
+				.project-meta li { 
+					display: inline-block;
+					margin-right: 15px;
+				}	
+	
+	}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {
+		
+			/* -------------------------------------------------- */
+			/*	Images
+			/* -------------------------------------------------- */
+
+				.link-icon .curtain:after,
+				.plus-icon .curtain:after,
+				.team-plus-icon .curtain:after {
+					margin: -20px 0 0 -20px;
+					width: 40px;
+					height: 40px;
+					font-size: 20px;
+					line-height: 40px;
+				}
+				
+		/* ---------------------------------------------------------------------- */
+		/*	Header
+		/* ---------------------------------------------------------------------- */
+		
+			/* -------------------------------------------------- */
+			/*	Main Navigation
+			/* -------------------------------------------------- */
+
+			#header #navigation { position: relative; }	
+		
+		/* ---------------------------------------------------------------------- */
+		/*	Section
+		/* ---------------------------------------------------------------------- */
+
+			/* -------------------------------------------------- */
+			/* Slogan Title Group
+			/* -------------------------------------------------- */
+
+				.section-title h1 { font-size: 43px; }
+				
+			/* -------------------------------------------------- */
+			/* Slogan Group
+			/* -------------------------------------------------- */
+
+			.slogan { margin-bottom: 40px; }
+
+				.slogan h1 { font-size: 34px; }
+				
+			/* -------------------------------------------------- */
+			/* Video Full Container
+			/* -------------------------------------------------- */	
+
+					.video-title { font-size: 40px; }	
+					
+			/* -------------------------------------------------- */
+			/* Team
+			/* -------------------------------------------------- */	
+
+				.team-contents { width: 100%; }
+
+					.team-member article {
+						float: none;
+						margin: 0 0 20px;
+					}	
+					
+						.contents { width: 100%; }
+
+							.team-info {
+								float: none;
+								width: 100%;
+							}
+							
+								.team-image { 
+									display: inline-block;
+									width: 100%;
+									vertical-align: top;
+								}
+								
+									.team-image img { border: 1px solid #e0e0e0; }
+								
+								.team-group {
+									display: inline-block;
+									margin-bottom: 10px;
+									padding-right: 0;
+									width: 55%;
+									vertical-align: bottom;
+									border-color: transparent;
+									background-color: transparent;
+								}	
+								
+								.team-member article:hover .team-group { background-color: transparent; }
+								
+									.team-member article:hover .team-title,
+									.team-member article:hover .team-position { color: inherit; }	
+								
+							.team-content {
+								margin-left: 0;
+								font-size: 14px;
+							}
+
+								.team-entry { width: 100%; }	
+				
+			/* -------------------------------------------------- */
+			/* Twitter 
+			/* -------------------------------------------------- */	
+
+				.tweet .tweets .tweet_text { padding: 0 0 30px; }		
+				
+			/* -------------------------------------------------- */
+			/*	Clients
+			/* -------------------------------------------------- */			
+
+				ul.clients-items li { width: 50%; }
+				
+			/* -------------------------------------------------- */
+			/* Pricing Tables
+			/* -------------------------------------------------- */	
+
+				.simple-pricing-table .column { 
+					margin-bottom: 20px;
+					width: 100%;
+				}
+
+				.simple-pricing-table.col-2 .column,
+				.simple-pricing-table.col-3 .column,
+				.simple-pricing-table.col-4 .column { width: 100%; }
+				
+				.simple-pricing-table .column:hover,
+				.simple-pricing-table .featured {
+					-webkit-transform: scale(1);
+							transform: scale(1);
+				}
+
+		/* ---------------------------------------------------------------------- */
+		/*	Blog
+		/* ---------------------------------------------------------------------- */
+		
+			/* -------------------------------------------------- */
+			/*	Image Post Slider
+			/* -------------------------------------------------- */
+
+			.image-slider-nav a {
+				margin-top: -25px;
+				width: 25px;
+				height: 50px;
+			}
+			
+			.touch .image-slider .prevBtn { left: 15px;  }
+			.touch .image-slider .nextBtn { right: 15px; }
+
+			.image-slider-nav a:after {
+				font-size: 25px;
+				line-height: 48px;
+			}
+
+			/* -------------------------------------------------- */
+			/*	Respond
+			/* -------------------------------------------------- */
+
+				#respond input[type="text"],
+				#respond input[type="email"],
+				#respond input[type="url"] { width: 100%; }
+
+				#respond textarea {
+					width: 100%;
+					min-width: 100%; 
+				}
+				
+			/* -------------------------------------------------- */
+			/*	Tabs
+			/* -------------------------------------------------- */
+			
+			.tabs-nav { height: 38px; }
+
+				.tabs-nav li a {
+					padding: 6px 15px;
+					height: 38px;
+				}
+				
+		/* ---------------------------------------------------------------------- */
+		/*	Portfolio
+		/* ---------------------------------------------------------------------- */	
+		
+			/* -------------------------------------------------- */
+			/*	Portfolio Filter
+			/* -------------------------------------------------- */
+
+			.portfolio-filter { text-align: left; }
+
+				.portfolio-filter li {
+					width: 48%;
+					border-width: 1px;
+					text-align: center;
+				}
+
+				.portfolio-filter li:first-child {
+					-webkit-border-radius: 0;
+							border-radius: 0;
+				}
+
+				.portfolio-filter li:last-child {
+					border-right-width: 1px;
+					-webkit-border-radius: 0;
+							border-radius: 0;
+				}
+				
+				.portfolio-filter li:nth-child(2n-1) {
+					margin-right: 4%;
+					-webkit-border-radius: 6px 0 0 6px;
+							border-radius: 6px 0 0 6px;
+				}
+				
+				.portfolio-filter li:nth-child(2n) {
+					margin-right: 0;
+					-webkit-border-radius: 0 6px 6px 0;
+							border-radius: 0 6px 6px 0;
+				}
+
+				.portfolio-filter li.active + li { border-left-color: #cfcfcf; }
+				
+			/* -------------------------------------------------- */
+			/*	Portfolio Items
+			/* -------------------------------------------------- */
+
+				ul.portfolio-items li { width: 50%; }
+
+			/* -------------------------------------------------- */
+			/*	Portfolio Single
+			/* -------------------------------------------------- */
+
+				.project-page-header .project-title { font-size: 40px; }	
+
+			/* Project Nav */
+
+			.project-nav { margin-top: -10px; }
+
+				.project-nav li { margin-left: 10px; }
+
+					.project-nav li a:after {
+						font-size: 25px;
+						line-height: 24px;
+					}
+
+					.project-nav .all-projects:after { font-size: 23px; }
+
+			/* Project Meta */
+			
+			.project-meta { margin-bottom: 10px; }
+
+				.project-meta li { 
+					display: inline-block;
+					margin-right: 15px;
+				}	
+				
+			
+		/* Project Similar Posts */
+
+			.project-similar li { width: 33.33333333333333%; }	
+
+		/* ---------------------------------------------------------------------- */
+		/*	Widgets + Shortcodes
+		/* ---------------------------------------------------------------------- */
+		
+			/* -------------------------------------------------- */
+			/*	Map
+			/* -------------------------------------------------- */
+
+			.google_map { height: 200px; }	
+
+	}
+
+	/*  Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {
+		
+		.navigation > ul > li {
+			width: 50%;
+		}
+		
+			
+	}
+	/* Mobile Landscape Size(devices and browsers) */
+	@media only screen and (max-width: 480px) {
+		
+		.navigation > ul > li {
+			width: 100%;
+		}
+		
+			
+	}
+
+
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {
+		
+		/* -------------------------------------------------- */
+		/*	Single Post Navigation
+		/* -------------------------------------------------- */
+		
+		.single-post-nav a       { font-size:     15px; }
+		.single-post-nav .prev   { padding-left:  25px; }
+		.single-post-nav .next   { padding-right: 25px; }
+		.single-post-nav a:after { font-size:	  24px;	}
+		
+		/* ---------------------------------------------------------------------- */
+		/*	Portfolio
+		/* ---------------------------------------------------------------------- */	
+
+			/* -------------------------------------------------- */
+			/*	Portfolio Single
+			/* -------------------------------------------------- */
+			
+				.project-page-header .project-title {
+					padding-right: 80px;
+					font-size: 35px;
+				}	
+				
+		/* ---------------------------------------------------------------------- */
+		/*	Footer
+		/* ---------------------------------------------------------------------- */
+
+			/* -------------------------------------------------- */
+			/*	Logo In Footer
+			/* -------------------------------------------------- */
+
+				.logo-in-footer h1 { font-size: 70px; }
+				
+			/* -------------------------------------------------- */
+			/*	Bottom Footer
+			/* -------------------------------------------------- */	
+
+				.copyright { font-size: 11px; }
+		
+	}

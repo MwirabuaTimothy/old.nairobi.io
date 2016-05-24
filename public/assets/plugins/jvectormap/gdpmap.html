@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8"/>
+  <title>Home</title>
+
+  <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <link rel="stylesheet" media="all" href="/css/style.css"/>
+  <link rel="stylesheet" media="all" href="/css/lessframework.css"/>
+  <link rel="stylesheet" media="all" href="/css/skin.css"/>
+  <link rel="stylesheet" media="all" href="/css/jquery-jvectormap-2.0.2.css"/>
+  <link rel="stylesheet" media="all" href="/css/syntax.css"/>
+  <link rel="stylesheet" media="all" href="/css/jsdoc.css"/>
+  <link rel="stylesheet" media="all" href="/css/jquery-ui-1.8.22.custom.css"/>
+
+  <script src="/js/jquery-1.8.2.min.js"></script>
+  <script src="/js/css3-mediaqueries.js"></script>
+  <script src="/js/modernizr.js"></script>
+  <script src="/js/jquery-jvectormap-2.0.2.min.js"></script>
+  <script src="/js/tabs.js"></script>
+
+  
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20607161-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<body lang="en">
+  <header>
+    <div class="wrapper clearfix">
+
+      <div id="logo">
+        <a href="/"><img src="/img/logo.png" alt="Simpler"></a>
+      </div>
+
+      
+      <ul id="nav">
+        
+          
+            <li class="current-menu-item"><a>Home</a></li>
+          
+        
+          
+            <li><a href="/licenses-and-pricing/">Licenses and prices</a></li>
+          
+        
+          
+            <li><a href="/download/">Download</a></li>
+          
+        
+          
+            <li><a href="/maps/world/europe/">Maps</a></li>
+          
+        
+          
+            <li><a href="/documentation/">Documentation</a></li>
+          
+        
+          
+            <li><a href="/tutorials/getting-started/">Tutorials</a></li>
+          
+        
+          
+            <li><a href="/examples/world-gdp/">Examples</a></li>
+          
+        
+          
+            <li><a href="/contacts/">Contacts</a></li>
+          
+        
+      </ul>
+
+      
+        <div class="clearfix"></div>
+        <div id="slider-holder" class="clearfix">
+          <div class="demo-map"></div>
+
+          <div class="home-slider-clearfix "></div>
+
+          <div id="headline">
+            <h4>Why to use jVectorMap?</h4>
+            <ul class="headline-list">
+              <li>Works in all modern browsers (including IE6-8)</li>
+              <li>Looks great on any resolution because of its vector nature</li>
+              <li>Many maps are <a href="/maps/">available</a></li>
+              <li>Custom maps could be created using converter</li>
+            </ul>
+            <p><a href="/licenses-and-pricing">Licenses and pricing</a></p>
+          </div>
+        </div>
+        <script src="/js/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="/js/gdp-data.js"></script>
+        <script>
+          $(function(){
+            $('.demo-map').vectorMap({
+              map: 'world_mill_en',
+              backgroundColor: 'transparent',
+
+              series: {
+                regions: [{
+                  values: gdpData,
+                  scale: ['#C8EEFF', '#0071A4'],
+                  normalizeFunction: 'polynomial'
+                }]
+              },
+              hoverOpacity: 0.7,
+              hoverColor: false
+            });
+          });
+        </script>
+      
+    </div>
+  </header>
+
+  <div id="main">
+    <div class="wrapper clearfix">
+      
+        <div class="home-block clearfix">
+  <h1 class="home-headline">Features</h1>
+  <ul>
+    <li>
+      <h4>JavaScript-based</h4>
+      <p>jVectorMap uses only native browser technologies like JavaScript, CSS, HTML, SVG or VML.
+        No Flash or any other proprietary browser plug-in is required. This allows jVectorMap to
+        work in all modern mobile browsers.</p>
+    </li>
+    <li>
+      <h4>Interactivity</h4>
+      <p>Using documented API you can handle various events from the map like
+        hovers, clicks, label displaying and customize the behavior of the plug-in.</p>
+    </li>
+    <li>
+      <h4>Maps</h4>
+      <p>Many maps of the world, world regions, countries and cities are available for download
+        from this site. All of them are made from the data in public domain or data licensed
+        under the free licenses, so you can use them for any purpose without of charge.</p>
+    </li>
+    <li>
+      <h4>Converter</h4>
+      <p>Plug-in package includes maps converter written in Python. It's used to create maps
+        available on this site. If you want to create some custom map you can create it using
+        data in common GIS formats like Shapefile for example.</p>
+    </li>
+    <li>
+      <h4>Standard compliant</h4>
+      <p>For identification of the countries and regions ISO 3166 standard is used. So you
+        easily visualize data which is compliant with this standard.</p>
+    </li>
+  </ul>
+</div>
+      
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrapper clearfix">
+      <div class="footer-bottom">
+        <div class="left">&copy; Kirill Lebedev</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

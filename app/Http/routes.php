@@ -43,7 +43,6 @@ $router->controller('tests', 'TestsController');
 $router->resource('tours', 'ToursController');
 
 Route::group(['middleware' => 'web'], function () {
-
 	Route::get('account/facebook/api', ['uses' => 'RegistrationController@redirect', 'as' => 'facebook.redirect']);
 	Route::get('account/facebook', ['uses' => 'RegistrationController@facebook', 'as' => 'facebook']);
 
@@ -62,7 +61,7 @@ Route::group(['middleware' => 'web'], function () {
 		/**
 		 * Frontend Controllers
 		 */
-		Route::get('/', 'FrontendController@index')->name('frontend.index');
+		Route::get('/', 'FrontendController@home')->name('frontend.home');	
 		Route::get('macros', 'FrontendController@macros')->name('frontend.macros');
 
 		/**
@@ -123,6 +122,33 @@ Route::group(['middleware' => 'web'], function () {
 				Route::post('password/reset', 'PasswordController@reset');
 			});
 		});
+
+		# Blog Management
+		Route::group(array('prefix' => 'blog'), function(){
+
+			Route::get('/',  ['as'=>'blog', 'uses' => 'BlogsController@index']);
+
+			Route::get('api', function(){ return Article::paginate(10); });
+			Route::get('create',  ['as'=>'blog.create', 'uses' => 'BlogsController@create']);
+			Route::get('search', ['as'=>'blog.search.empty', 'uses'=>'BlogsController@emptySearch']);
+			Route::post('search', ['as'=>'blog.search', 'uses'=>'BlogsController@search']);
+			Route::get('search/{query}', ['as'=>'blog.search.get', 'uses'=>'BlogsController@getSearch']);
+			Route::get('search/api', ['as'=>'blog.search.api', 'uses'=> function(){ return All::ajaxByLetters(); }]);
+
+			Route::get('{id}/highlight', array('as' => 'blog.highlight', 'uses' => 'BlogsController@highlight'));
+			Route::get('{id}/top', array('as' => 'blog.top', 'uses' => 'BlogsController@top'));
+			Route::get('{id}/api', ['as'=>'article.show.api', 'uses'=>'BlogsController@show']);
+
+
+			Route::get('{slug}', array('as' => 'blog.show', 'uses' => 'BlogsController@show'));
+			Route::get('{slug}/edit', array('as' => 'blog.edit', 'uses' => 'BlogsController@edit'));
+			Route::get('{slug}/star', array('as' => 'blog.star', 'uses' => 'BlogsController@star'));
+			Route::get('{slug}/unstar', array('as' => 'blog.unstar', 'uses' => 'BlogsController@unstar'));
+			Route::post('{slug}', array('as' => 'blog.update', 'uses' => 'BlogsController@update'));
+
+		});
+
+
 
 	});
 });

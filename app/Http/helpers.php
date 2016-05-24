@@ -223,15 +223,17 @@
 
     function uploadImage($record, $field) {
 
-        if(Input::hasFile($field)) {
-            $file = Input::file($field);
+        $request = new \Illuminate\Http\Request;
+
+        if($request->hasFile($field)) {
+            $file = $request->file($field);
             $destinationPath = '/uploads/' . $record->getTable() . '/' . $field.'/'.$record->id.'/';
             $filename = str_random(6) . '_' . $file->getClientOriginalName();
             $uploadSuccess = $file->move(public_path() . $destinationPath, $filename);
             return $destinationPath.$filename;
         }
-        elseif(Input::get($field)) { // possible base64 upload
-            $data = explode(',', Input::get($field));
+        elseif($request->get($field)) { // possible base64 upload
+            $data = explode(',', $request->get($field));
             $decoded = base64_decode($data[1]); 
 
             $path = '/uploads/'.$record->getTable().'/'.$field.'/'.$record->id.'/';
@@ -335,10 +337,10 @@
      */
 
     function canEdit($record) {
-        if (!Sentry::check()) {
+        if (!Auth::check()) {
             return false;
         }
-        if (All::getCreator($record) == Sentry::getUser()->id || Sentry::getUser()->hasAccess('admin')) {
+        if (All::getCreator($record) == Auth::getUser()->id || Auth::getUser()->hasAccess('admin')) {
             return true;
         } else {
             return false;

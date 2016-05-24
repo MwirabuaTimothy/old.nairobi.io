@@ -1,0 +1,113 @@
+/*Coming Soon Page
+------------------------------------*/
+.coming-soon-page {
+	background: #585f69;
+}
+
+.coming-soon-border {
+	border-top: solid 3px #72c02c;
+}
+
+.coming-soon{
+	min-height:100%;
+	position: absolute;
+	left: 0px;
+    width: 100%;
+}
+.coming-soon-page .footer {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	left: 0px;
+	padding: 20px;
+	background:transparent;
+}
+
+.coming-soon-plugin {
+	padding: 10px;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 150px;
+} 
+
+
+.coming-soon h1,
+.coming-soon p {
+	color: #fff;
+}
+
+.coming-soon h1 {
+	font-size: 5em;
+	display: inline-block;
+	padding: 0.1em 0.5em;
+	line-height: 100px;
+	text-shadow: none;
+	margin: 0px auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	background-color: rgba(0, 0, 0, 0.3);
+	color:#fff;
+}
+
+h2#launchdate {
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #72c02c;
+	display: inline;
+	padding: 5px 20px;
+}
+
+.coming-soon p, #notifications p {
+	font-size: 16px;
+	line-height: 22px;
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #fff;
+	display: inline;
+	padding: 5px;
+}
+
+.coming-soon p a{
+	color: #72c02c;
+}
+
+
+.coming-soon-copyright p {
+	color: #fff;
+	float: right;
+	display: inline-block;
+}
+
+/* Small devices (tablets, 768px and less) */
+@media (max-width: 768px) { 
+	.coming-soon-copyright p {
+		float: none;
+	}
+	.footer .col-md-6{
+		text-align: center;
+	}
+	.social-icons li{
+		float: none;
+		display: inline-block;
+		list-style: none;
+		margin-right: 5px;
+		margin-bottom: 5px;
+		text-indent: -9999px;
+		margin: 0 auto;
+		padding-top: 5px;
+	}
+}
+
+#defaultCountdown{
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.form{
+	width: 100%;
+	display: inline-block;
+	margin: 20px 0;
+	text-align: center;
+}
+.form button.btn-u {
+	margin: 0px;
+}
+

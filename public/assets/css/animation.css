@@ -1,0 +1,233 @@
+/* ---------------------------------------------------------------------- */
+/*	Animation
+/* ---------------------------------------------------------------------- */
+
+	/* -------------------------------------------------- */
+	/*	Opacity
+	/* -------------------------------------------------- */
+
+	.animated .opacity { 
+		opacity: 0; 
+		-webkit-transition: opacity .8s ease;
+				transition: opacity .8s ease;
+	}
+	
+	.animated .opacityRun	  { opacity: 1; }		
+
+	/* -------------------------------------------------- */
+	/*	Opacity 2x
+	/* -------------------------------------------------- */
+
+	.animated .opacity2x { 
+		opacity: 0; 
+		-webkit-transition: opacity .3s ease;
+				transition: opacity .3s ease;
+	}
+	
+	.animated .opacity2xRun	  { opacity: 1; }		
+	
+	/* -------------------------------------------------- */
+	/*	Scale
+	/* -------------------------------------------------- */
+
+	.animated .scale {
+		opacity: 0;
+		-webkit-transform: scale(0.1);
+				transform: scale(0.1);
+		-webkit-transition: -webkit-transform .4s ease;
+				transition: transform .4s ease;
+	}
+	
+	.animated .scaleRun {
+		opacity: 1;
+		-webkit-animation-name: scaleRun;
+				animation-name: scaleRun;
+		-webkit-animation-duration: 1s;
+				animation-duration: 1s;
+		-webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+				animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+		-webkit-transform: scale(1);
+				transform: scale(1);
+	}
+	
+	/* -------------------------------------------------- */
+	/*	Slide Right
+	/* -------------------------------------------------- */
+
+	.animated .slideRight {
+		opacity: 0;
+		-webkit-transform: translateX(-15%);
+				transform: translateX(-15%);
+		-webkit-transition-timing-function: ease;
+				transition-timing-function: ease;	
+		-webkit-transition-duration: 1.5s;
+				transition-duration: 1.5s;
+		-webkit-transition-property: -webkit-transform, opacity;
+				transition-property: transform, opacity;	
+		-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;		
+	}
+
+	.animated .slideRightRun {
+		opacity: 1;
+		-webkit-animation-name: slideRightRun;
+				animation-name: slideRightRun;
+		-webkit-transform: translateX(0);
+				transform: translateX(0);
+	}
+
+	/* -------------------------------------------------- */
+	/*	Slide Left
+	/* -------------------------------------------------- */
+
+	.animated .slideLeft {
+		opacity: 0;
+		-webkit-transform: translateX(15%);
+				transform: translateX(15%);
+		-webkit-transition-timing-function: ease;
+				transition-timing-function: ease;	
+		-webkit-transition-duration: 1.5s;
+				transition-duration: 1.5s;
+		-webkit-transition-property: -webkit-transform, opacity;
+				transition-property: transform, opacity;	
+		-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;		
+	}
+
+	.animated .slideLeftRun {
+		opacity: 1;
+		-webkit-animation-name: slideLeftRun;
+				animation-name: slideLeftRun;
+		-webkit-transform: translateX(0);
+				transform: translateX(0);
+	}	
+	
+	/* -------------------------------------------------- */
+	/*	Slide Down
+	/* -------------------------------------------------- */
+
+	.animated .slideDown {
+		opacity: 0;
+		-webkit-transform: translateY(-15%);
+				transform: translateY(-15%);
+		-webkit-transition-timing-function: ease;
+				transition-timing-function: ease;	
+		-webkit-transition-duration: 1.5s;
+				transition-duration: 1.5s;
+		-webkit-transition-property: -webkit-transform, opacity;
+				transition-property: transform, opacity;	
+		-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;		
+	}
+	
+
+	.animated .slideDownRun {
+		opacity: 1;
+		-webkit-animation-name: slideDownRun;
+				animation-name: slideDownRun;
+		-webkit-transform: translateY(0);
+				transform: translateY(0);
+	}	
+	
+	/* -------------------------------------------------- */
+	/*	Slide Up
+	/* -------------------------------------------------- */
+
+	.animated .slideUp {
+		opacity: 0;
+		-webkit-transform: translateY(15%);
+				transform: translateY(15%);
+		-webkit-transition-timing-function: ease;
+				transition-timing-function: ease;
+		-webkit-transition-duration: 1.5s;
+				transition-duration: 1.5s;
+		-webkit-transition-property: all;
+				transition-property: all;
+		-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;			
+	}
+	
+	.animated .slideUpRun {
+		opacity: 1;
+		-webkit-animation-name: slideUpRun;
+				animation-name: slideUpRun;
+		-webkit-transform: translateY(0);
+				transform: translateY(0);		
+	}	
+	
+/* ---------------------------------------------------------------------- */
+/*	Keyframes
+/* ---------------------------------------------------------------------- */
+
+
+/* SlideLeft */
+
+@-webkit-keyframes slideLeftRun {
+	0%   { -webkit-transform: translateX(15%); }
+	100% { -webkit-transform: translateX(0);  }
+}
+
+@keyframes slideLeftRun {
+	0%   { transform: translateX(15%); }
+	100% { transform: translateX(0); }
+}
+
+/* SlideRight */
+
+@-webkit-keyframes slideRightRun {
+	0%	 { -webkit-transform: translateX(-15%); }
+	100% { -webkit-transform: translateX(0); }
+}
+
+@keyframes slideRightRun {
+	0%   { transform: translateX(-15%); }
+	100% { transform: translateX(0); }
+}
+
+/* SlideDown */
+
+@-webkit-keyframes slideDownRun {
+	0%   { -webkit-transform: translateY(-15%); }
+	100% { -webkit-transform: translateY(0); }
+}
+
+@keyframes slideDownRun {
+	0%   { transform: translateY(-15%); }
+	100% { transform: translateY(0); }
+}
+
+/* SlideUp */
+
+@-webkit-keyframes slideUpRun {
+	0%	 { -webkit-transform: translateY(15%); }
+	100% { -webkit-transform: translateY(0); }
+}
+
+@keyframes slideUpRun {
+	0%	 { transform: translateY(15%); }
+	100% { transform: translateY(0); }
+}
+
+/* Scale */
+
+@-webkit-keyframes scaleRun {
+	0%   { -webkit-transform: scale(0.1); opacity: 0; }
+	100% { -webkit-transform: scale(1);   opacity: 1; }
+}
+
+@keyframes scaleRun {
+	0%   { transform: scale(0.1); opacity: 0; }
+	100% { transform: scale(1);   opacity: 1; }
+}
+
+/* Scale For Pricing */
+
+@-webkit-keyframes scaleRunPricing {
+	0%   { -webkit-transform: scale(0.1); opacity: 0; }
+	100% { -webkit-transform: scale(1.05);   opacity: 1; }
+}
+
+@keyframes scaleRunPricing {
+	0%   { transform: scale(0.1); opacity: 0; }
+	100% { transform: scale(1.05);   opacity: 1; }
+}

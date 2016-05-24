@@ -1,0 +1,78 @@
+		/*create and edit article*/
+
+
+		input.title {
+			font-size: 30px;
+			font-weight: 300;
+			font-family: 'Roboto', sans-serif;
+			line-height: 1.5em;
+			color: #555;
+			padding: 5px 0px;
+			border-radius: 2px;
+		}
+		.mce-panel, 
+		.mce-btn, 
+		div.mce-edit-area {
+			background-color: transparent !important;
+			background-image: none !important;
+		}
+		.mce-menu,
+		.mce-floatpanel {
+			background: #fff !important;
+			padding: 0px !important;
+		}
+
+		.mce-flow-layout-item *, .mce-btn button {
+		    color: inherit !important;
+		}
+		
+
+		.select2-container--default .select2-selection--multiple {
+			background-color: inherit;
+			border: 1px solid #999;
+			border-radius: 2px;
+		}
+		.select2-container--default.select2-container--focus .select2-selection--multiple {
+			border: 1px solid #1AC8B2;
+			outline: 0;
+		}
+		.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    		background-color: #1AC8B2;
+			font-size: 16px;
+			padding: 1px 5px;
+			border-radius: 6px;
+			color: #fff;
+		}
+		span.select2-selection {
+			height: 37px;
+		}
+		.select2-container .select2-search--inline .select2-search__field {
+			padding: 0;
+		}
+		span.mce-txt {
+			line-height: 20px;
+			color: initial
+		}
+		.mce-primary button span.mce-txt {
+		    color: #fff;
+		    background-color: #1ac8b2;
+		    padding: 5px 10px;
+		}
+		i.mce-ico.mce-i-image {
+			margin-left: -5px;
+		}
+		button.submit {
+			background-color: #00c2a9;
+			color: #fff;
+			margin-top: 25px;
+			padding: 8px;
+			width: 100%;
+			font-size: 20px; 
+			border-radius: 5px;
+		}
+		button.submit:hover {
+			background-color: #fff;
+			color: #00c2a9;
+		}
+
+

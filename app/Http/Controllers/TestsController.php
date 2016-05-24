@@ -10,45 +10,15 @@ class TestsController extends Controller {
 	 * @return mixed
 	 */
 	public function getIndex() {
-		// return  array_merge([0=>'Please select one category'], \App\Category::lists('name', 'id'));
-		// return User::find(1);
-		// return Language::find(1);
-		//return Review::find(1);
-		// return User::find(1)->languages;
-		// return Language::all();
-		//return Tour::all();
-		// return \App\DB::table('user_languages')->get();
-		// return DB::table('user_languages')->get();
-		// return date('now')->format('d M Y');
 
 		// return time();
 		return microtime(true)*100;
 		return date('d M Y');
-		// return \App\Carbon::now()->format('d M Y');
-		// $group->members()->attach(1);
-		return [$group->members->contains(1)];
-
-		// return [$group->memberRequests(8)->first()];
-		return $group->mentorRequests(8) ? 'y' : 'n';
-
-		return $group->mentors;
-		return $group->creator;
-		// return $group;
-		$user = auth()->user();
-		return [$user->groups->contains($group->id)];
+		// return date('now')->format('d M Y');
 
 		$tags = \App\Tag::find([rand(0, 5), rand(0, 5), rand(0, 5), rand(0, 5)]);
 		return $tags;
-		$group = \App\Group::find(8);
-		return $group->tagz();
-		$cats = \App\Category::lists('name', 'id');
-		return array_merge([0 => 'Please select one category'], $cats->toArray());
-		// return $cats;
-		return \App\Category::lists('name', 'id');
 	}
-	// public function postIndex(){
-
-	// }
 
 	public function getName() {
 		return app_name();

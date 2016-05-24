@@ -1,0 +1,325 @@
+/*
+ * jQuery FlexSlider v2.2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+
+
+/* Browser Resets
+*********************************/
+
+.slides,
+.flex-control-nav,
+.flex-direction-nav { 
+	margin: 0;
+	padding: 0; 
+	list-style: none;
+}
+
+/* FlexSlider Default Theme
+*********************************/
+
+.flexslider { 
+	position: relative;
+	margin: 0;
+	padding: 0 110px;
+	zoom: 1;
+}
+
+	.flex-wrap-viewport { position: relative; }
+		.flex-viewport	{ max-height: 2000px; }
+		.loading .flex-viewport { max-height: 300px; }
+
+/* FlexSlider Necessary Styles
+*********************************/
+
+	.flexslider .slides { zoom: 1; }
+
+		.flexslider .slides > li {
+			display: none;
+			-webkit-backface-visibility: hidden;
+			text-align: center;
+		} 
+
+		.no-js .slides > li:first-child {display: block;}
+
+			.flexslider .slides img {
+				display: block;
+				width: 100%; 
+		}
+
+/* Clearfix for the .slides element */
+/*.slides:after {
+	content: "\0020";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+html[xmlns] .slides { display: block; }
+* html .slides		{ height: 1%; }*/
+
+
+/* Direction Nav */
+
+.flex-direction-nav a {
+	position: absolute; 
+	top: 35%; 
+	z-index: 10;
+	display: block;
+	overflow: hidden;
+	margin-top: -35px; 
+	width: 35px; 
+	height: 70px; 
+	border: 1px solid #dcdcdc;
+	text-align: center;
+	font-size: 0;
+	
+	-webkit-border-radius: 3px;
+			border-radius: 3px;
+	-webkit-transition: all .25s ease;
+			transition: all .25s ease;
+}
+
+.flex-direction-nav .flex-prev { left: -110px; }
+.flex-direction-nav .flex-next { right: -110px; }
+
+.flex-direction-nav a:hover { 
+	border-color: transparent;
+	background-color: #00c2a9; 
+}
+
+.flex-direction-nav .flex-disabled {
+	opacity: 0 !important; 
+	filter: alpha(opacity = 0); 
+	cursor: default;
+}
+
+.flex-direction-nav a:before {
+	display: block;
+	color: #00c2a9;
+	font-size: 30px; 
+	font-family: 'fontello';
+	line-height: 68px;
+	text-align: center;
+	
+	-webkit-transition: color .25s ease;
+			transition: color .25s ease;	
+}
+
+.flex-direction-nav .flex-prev:before { content: '\e8b7'; }
+.flex-direction-nav .flex-next:before { content: '\e8b8'; }
+
+.flex-direction-nav a:hover:before { color: #fff; }
+
+/* Pause/Play */
+
+.flex-pauseplay a { 
+	position: absolute;
+	bottom: 5px; 
+	left: 10px; 
+	z-index: 10;
+	display: block;
+	overflow: hidden; 
+	color: #000; 
+	opacity: 0.8;
+	cursor: pointer; 
+}
+
+.flex-pauseplay a:before { 
+	
+}
+
+.flex-pauseplay a:hover  { }
+.flex-pauseplay a.flex-play:before { }
+
+/* Control Nav */
+
+.flex-control-nav {
+	position: absolute;
+	bottom: -40px; 
+	width: 100%;
+	text-align: center;
+}
+
+	.flex-control-nav li {
+		display: inline-block;
+		margin: 0 6px; 
+		zoom: 1; 
+	}
+
+		.flex-control-paging li a {
+			display: block; 
+			width: 11px; 
+			height: 11px; 
+			background: #666; 
+			background: rgba(0,0,0, 0.5); 
+			cursor: pointer; 
+			text-indent: -9999px;
+		}
+		
+		.flex-control-paging li a:hover { 
+			background: #333; 
+			background: rgba(0,0,0,0.7); 
+		}
+		
+		.flex-control-paging li a.flex-active { 
+			background: #000;
+			background: rgba(0,0,0,0.9); 
+			cursor: default; 
+		}
+
+/* Control Thumbs */
+
+.flex-control-thumbs {
+	position: static;
+	overflow: hidden;
+	margin-top: 20px; 
+	margin-bottom: 70px;
+	font-size: 0;
+	text-align: center;
+}
+
+	.flex-control-thumbs li  {
+		display: inline-block;
+		width: 140px;
+		text-align: center;
+		margin: 0px;
+	}
+	
+		.flex-control-thumbs i {
+			display: inline-block;
+			width: 100px;
+			margin-bottom: 15px;
+			border: 1px solid #cfcfcf;
+			color: #5b5e60;
+			font-size: 44px;
+			line-height: 96px;
+			cursor: pointer;
+			
+			-webkit-border-radius: 6px;
+					border-radius: 6px;
+			-webkit-transition: all .25s ease;
+					transition: all .25s ease;			
+		}
+		
+		.flex-control-thumbs .flex-active {
+			border-color: transparent;
+			background-color: #00c2a9;
+		}
+		
+		.flex-control-thumbs .flex-active:before { color: #fff; }
+		
+		.flex-control-thumbs h6 {
+			color: #5b5e60;
+			font-size: 18px;
+			font-family: 'Roboto Condensed', sans-serif;
+			text-transform: uppercase;
+		}
+		
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+		
+	.flexslider { padding: 0 50px; }	
+
+		/* Direction Nav */
+
+		.flex-direction-nav .flex-prev { left: -70px; }
+		.flex-direction-nav .flex-next { right: -70px; }
+
+		/* Control Thumbs */
+
+	.flex-control-thumbs { margin-bottom: 40px; }
+
+		.flex-control-thumbs li  {
+			margin: 0 10px;
+			/*width: 80px; */
+		}
+
+			.flex-control-thumbs i {
+				font-size: 36px;
+				line-height: 80px;
+			}
+		
+}	
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+
+	.flexslider { padding: 0 50px; }
+	
+		/* Direction Nav */
+
+		.flex-direction-nav .flex-prev { left: -70px; }
+		.flex-direction-nav .flex-next { right: -70px; }
+
+		/* Control Thumbs */
+
+	.flex-control-thumbs { 
+		margin-bottom: 20px;
+	}
+
+		.flex-control-thumbs li  {
+			margin: 0 10px;
+			width: 100px;
+		}
+
+			.flex-control-thumbs i {
+				font-size: 30px;
+				line-height: 60px;
+			}
+
+		.flex-control-thumbs h6 { font-size: 14px; }			
+			
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+	
+	.flexslider { padding: 0; }
+	
+		/* Direction Nav */
+
+		.flex-direction-nav .flex-prev { display: none;  }
+		.flex-direction-nav .flex-next { display: none;  }
+		
+		/* Control Thumbs */
+
+	.flex-control-thumbs { margin-bottom: 20px; }
+
+		.flex-control-thumbs li  {
+			margin: 0px;
+  			width: 75px;
+		}
+			.flex-control-thumbs i {
+				width: 50px;
+				margin-bottom: 10px;
+				font-size: 30px;
+				line-height: 50px;
+			}
+
+		.flex-control-thumbs h6 { font-size: 10px; }		
+	
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+
+		/* Control Thumbs */
+
+		.flex-control-thumbs li  { width: 75px; }
+
+			.flex-control-thumbs i {
+				font-size: 18px;
+				line-height: 40px;
+			}
+			
+		.flex-control-thumbs h6 { font-size: 10px; }		
+
+}

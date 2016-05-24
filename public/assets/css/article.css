@@ -1,0 +1,199 @@
+/* 
+Adapted from codepen 
+https://www.tinymce.com/css/codepen.min.css
+*/
+
+b,strong {
+    font-weight: 700
+}
+
+button,input,input[type=color],input[type=text],input[type=time],input[type=url],input[type=week],input[type=button],input[type=reset],input[type=submit],input[type=date],input[type=datetime],input[type=datetime-local],input[type=email],input[type=month],input[type=number],input[type=password],input[type=search],input[type=tel],pre,select,textarea {
+    font: inherit
+}
+
+@font-face {
+    font-family:aileron;font-style:normal;font-weight:200;src:url(../fonts/aileron-ultra-light.eot?#iefix) format("embedded-opentype"),url(../fonts/aileron-ultra-light.woff) format("woff"),url(../fonts/aileron-ultra-light.ttf) format("truetype")
+}
+
+.mce-container textarea {
+    display: initial!important
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 15px;
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.3em;
+}
+
+h1 {
+    font-size: 34px
+}
+
+h2 {
+    font-size: 30px
+}
+
+h3 {
+    font-size: 26px
+}
+
+h4 {
+    font-size: 22px
+}
+
+h5 {
+    font-size: 18px
+}
+
+h6 {
+    font-size: 14px
+}
+
+ol, ul {
+    margin-left: 15px;
+    list-style-position: outside;
+    margin-bottom: 20px
+}
+
+ol li, ul li {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: disc
+}
+
+ol {
+    list-style-type: decimal
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: separate;
+    border: 1px solid #aaa
+}
+
+table tr:nth-child(even) {
+    background: rgba(1, 1, 1, 0.2);
+}
+
+table caption, table td, table th {
+    padding: 15px 7px;
+    font: inherit
+}
+
+table th {
+    font-weight: 400;
+    color: #6E6E6E;
+    background-position: 100% 100%;
+    background-size: 2px 10px;
+    background-repeat: no-repeat
+}
+
+table th:last-child {
+    background: 0 0
+}
+
+/* CUSTOM */
+
+html{
+	height: 95%;
+}
+body{
+	font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+	height: 100%;
+	margin: 0px 5px;
+ 	margin-top: -5px;
+ 	background-color: transparent;
+}
+p {
+	/*display: inline-block;*/
+}
+a {
+    color: #1AC8B2;
+}
+img{
+	max-width: 100%;
+}
+
+body {
+    color: #333 !important;
+}
+body.dark {
+    color: #bbb !important;
+}
+
+body.black {
+    color: #bbb !important;
+}
+body.white {
+    color: #666 !important;
+}
+/* =Blockquote
+-------------------------------------------------------------- */
+blockquote {
+    position: relative;
+    margin: 10px 0;
+    clear: both;
+    padding: 10px 60px;
+    text-align: center;
+    font-size: 30px;
+	background: #1AC8B2;
+    color: #fff;
+}
+blockquote:before, blockquote:after {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    font-size: 60px;
+    line-height: 1;
+}
+blockquote:before {
+    top: 10px;
+    left: 0;
+    content: "\201C";
+}
+blockquote:after {
+    bottom: -10px;
+    right: 0;
+    content: "\201D";
+}
+
+/* line breaks */
+hr {
+	margin: 50px auto;
+	border: none;
+	border-top: 2px solid #1AC8B2;
+	height: 0px;
+	text-align: center;
+}
+hr:before {
+	position: relative;
+	content: "";
+	width: 0;
+	height: 0;
+	border-bottom: 8px solid #1AC8B2;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	z-index: 2;
+	top: -35px;
+	left: 25px;
+}
+hr:after {
+	position: relative;
+	content: "";
+	width: 0;
+	height: 0;
+	border-top: 8px solid #1AC8B2;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	z-index: 2;
+	top: 4px;
+	right: 25px;
+}
+
+
+

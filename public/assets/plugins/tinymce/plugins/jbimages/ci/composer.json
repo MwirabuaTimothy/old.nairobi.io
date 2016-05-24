@@ -1,0 +1,10 @@
+{
+    "require": {
+        "aws/aws-sdk-php": "2.6.*"
+    },
+    "autoload": {
+         "classmap" : [
+            "application/src/"
+        ]
+    }
+}
