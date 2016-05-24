@@ -126,7 +126,7 @@ Route::group(['middleware' => 'web'], function () {
 		# Blog Management
 		Route::group(array('prefix' => 'blog'), function(){
 
-			Route::get('/',  ['as'=>'blog.home', 'uses' => 'BlogsController@index']);
+			Route::get('/',  ['as'=>'home', 'uses' => 'BlogsController@index']);
 
 			Route::get('api', function(){ return Article::paginate(10); });
 			Route::get('create',  ['as'=>'blog.create', 'uses' => 'BlogsController@create']);

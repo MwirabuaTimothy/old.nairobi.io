@@ -6,7 +6,7 @@
     <div class="header-in clearfix">
 
       <div id="top-left" class="col-md-6 col-sm-12 col-xs-12">
-          <h1 id="logo"><a href="{{ Request::path() == 'blog' ? route('home') : route('blog') }}">NAIROBI.IO</a></h1> 
+          <h1 id="logo"><a href="{{ Request::path() == 'blog' ? route('home') : '/blog' }}">NAIROBI.IO</a></h1> 
           <br/>
           <h4 id="creed">Technology From Africa</h4>
           <form action="{{ route('blog.search') }}" method="post" accept-charset="utf-8" class="search">
@@ -32,7 +32,7 @@
 
         <ul>
           <?php $home = Request::segment(1) ? route('home') : ''; ?>
-          <li><a href="{{ route('blog') }}" id="blog">Blog</a></li>
+          <li><a href="{{ '/blog' }}" id="blog">Blog</a></li>
           <li><a href="{{ $home }}#about">About</a></li>
           <li><a href="{{ $home }}#folio">Folio</a></li>
           <!-- <li><a href="{{ $home }}#partners">Partners</a></li> -->
