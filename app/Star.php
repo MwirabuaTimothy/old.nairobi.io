@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Star extends Model
 {
     /**
      * @return \Illuminate\Database\Eloquent\Relations\belongsTo

@@ -1,6 +1,6 @@
 <?php
 
-use Carbon\Carbon as Carbon;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -31,36 +31,24 @@ class UserTableSeeder extends Seeder {
 				'password' => bcrypt('tim'),
 				'confirmation_code' => md5(uniqid(mt_rand(), true)),
 				'confirmed' => true,
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now(),
-				'gender' => 'm',
-				'fb_uid' => 'null',
 				'zip' => '+254',
 				'phone' => '711451409',
-				'image' => 'null',
-				'dob' => '1991-01-09',
 				'bio' => 'some random stuff',
-				'education_institution' => 'JKUAT',
-				'education_course' => 'Some course',
-			],
-			[
-				'first_name' => 'Default',
-				'last_name' => 'User',
-				'email' => 'user@user.com',
-				'password' => bcrypt('1234'),
-				'confirmation_code' => md5(uniqid(mt_rand(), true)),
-				'confirmed' => true,
 				'created_at' => Carbon::now(),
 				'updated_at' => Carbon::now(),
-				'gender' => 'm',
-				'fb_uid' => 'null',
+			],
+			[
+				'first_name' => 'Steve',
+				'last_name' => 'Kamau',
+				'email' => 'steve@email.com',
+				'password' => bcrypt('steve'),
+				'confirmation_code' => md5(uniqid(mt_rand(), true)),
+				'confirmed' => true,
 				'zip' => '+254',
-				'phone' => '703123456',
-				'image' => 'null',
-				'dob' => '1991-01-09',
+				'phone' => '715611306',
 				'bio' => 'some random stuff',
-				'education_institution' => 'JKUAT',
-				'education_course' => 'Some course',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 		];
 

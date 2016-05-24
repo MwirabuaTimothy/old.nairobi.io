@@ -3,30 +3,27 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class AccessTableSeeder extends Seeder {
-	public function run() {
-		if (env('DB_CONNECTION') == 'mysql') {
-			DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-		}
+class AccessTableSeeder extends Seeder
+{
+    public function run()
+    {
+        if (env('DB_CONNECTION') == 'mysql') {
+            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        }
 
-		$this->call(UserTableSeeder::class);
-		$this->call(RoleTableSeeder::class);
-		$this->call(UserRoleSeeder::class);
-		$this->call(PermissionGroupTableSeeder::class);
-		$this->call(PermissionTableSeeder::class);
-		$this->call(PermissionDependencyTableSeeder::class);
-		$this->call(LanguagesTableSeeder::class);
-		$this->call(UserLanguagesTableSeeder::class);
-		$this->call(ToursTableSeeder::class);
-		$this->call(ActivityTableSeeder::class);
-		$this->call(TourActivitiesTableSeeder::class);
-		$this->call(MessagesTableSeeder::class);
-		$this->call(BookingsTableSeeder::class);
-		$this->call(ReviewsTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+        $this->call(RoleTableSeeder::class);
+        $this->call(UserRoleSeeder::class);
+        $this->call(PermissionGroupTableSeeder::class);
+        $this->call(PermissionTableSeeder::class);
+        $this->call(PermissionDependencyTableSeeder::class);
+        $this->call(PartnersTableSeeder::class);
+        $this->call(TagsTableSeeder::class);
+        $this->call(BlogsTableSeeder::class);
+        $this->call(FollowsTableSeeder::class);
 
-		if (env('DB_CONNECTION') == 'mysql') {
-			DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-		}
-
-	}
+        if (env('DB_CONNECTION') == 'mysql') {
+            DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        }
+    }
 }

@@ -9,13 +9,13 @@
 
     @include('includes.details')
 
-    @include('includes.folio')
+    @include('includes.projects')
 
-    <!-- @ include('includes.partners') -->
+    {{-- @include('includes.partners') --}}
 
-    <!-- @ include('includes.testimonials') -->
+    {{-- @include('includes.testimonials') --}}
 
-    <!-- @ include('includes.team') -->
+    {{-- @include('includes.team') --}}
 
 @stop
 

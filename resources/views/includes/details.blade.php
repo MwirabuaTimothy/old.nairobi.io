@@ -25,7 +25,6 @@
                             </li>
                             <li data-icon="icon-pencil-7" data-title="design">
                                 <p>
-                                   
                                 </p>                    
                             </li>
                             <li data-icon="icon-code" data-title="Development">

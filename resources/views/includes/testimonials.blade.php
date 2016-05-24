@@ -34,6 +34,20 @@
                             <div class="quote-image"><img alt="Drew Houston, Founder, Dropbox" src="assets/img/testimonials/drew.jpg"></div>
                             <div class="quote-author"><span>Drew Houston, Founder, Dropbox</span></div>
                         </li>
+                        
+                        {{-- @todo - from db
+
+                        @foreach($testimonials as $t)
+                        <li class="align-center">
+                            <blockquote class="quote-text">
+                                <p>{{ $t->content }}</p>
+                            </blockquote>
+                            <div class="quote-image"><img alt="{{ $t->name }}, {{ $t->title }}, {{ $t->company }}" src="{{ $t->image }}"></div>
+                            <div class="quote-author"><span>{{ $t->name }}, {{ $t->title }}, {{ $t->company }}</span></div>
+                        </li>
+                        @endoreach
+
+                        --}}
 
                     </ul><!--/ .quotes-->
 

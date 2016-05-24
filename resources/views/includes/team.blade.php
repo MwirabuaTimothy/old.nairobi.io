@@ -148,51 +148,6 @@
                     </div><!--/ .contents-->
 
                 </article>
-
-                @if(false)
-
-                <article class="scale">
-
-                    <div class="contents clearfix">
-
-                        <div class="team-info">
-
-                            <div class="team-image">
-                                <a class="fancybox team-plus-icon" href="javascript:;">
-                                <!-- <img src="assets/img/testimonials/ingrid-252x270.jpg" alt="" /></a> -->
-                                <img src="assets/img/team/lee-300.png" alt="LEE" /></a>
-                            </div>
-
-                            <hgroup class="team-group">
-                                <h2 class="team-title">Lee Ibrahim</h2>
-                                <h5 class="team-position">Web Developer</h5>
-                            </hgroup>
-
-                        </div><!--/ .team-info-->
-
-                        <div class="team-content">
-                            <div class="team-entry">
-
-                                <p>
-
-                                    Lee is a full-stack Web Application Developer and Software Engineer. He has been developing since 2010 and is proficient in Python and PHP. His favourite frameworks are Django and Laravel. He is also a great front-end developer, proficient in HTML/HTML5, CSS/CSS3, LESS, SASS, JavaScript, jQuery, Photoshop, Indesign. He also does some non-web-based languages including but not limited to Java and Android. 
-
-                                </p>    
-
-                                <ul class="social-icons">
-                                    <li class="linkedin"><a href="#"><i class="icon-linkedin"></i>LinkedIn</a></li>
-                                    <li class="twitter"><a href="#"><i class="icon-twitter"></i>Twitter</a></li>
-                                    <li class="facebook"><a href="#"><i class="icon-facebook"></i>Facebook</a></li>
-                                </ul><!--/ .social-icons-->     
-
-                            </div><!--/ .team-entry-->
-                        </div><!--/ .team-content-->                
-
-                    </div><!--/ .contents-->
-
-                </article>              
-                
-                @endif
                 
                 <article class="scale">
 
@@ -235,6 +190,54 @@
 
                 </article>  
 
+                {{-- @todo - from db
+
+                @foreach($team_members as $member)
+
+                <article class="scale">
+
+                    <div class="contents clearfix">
+
+                        <div class="team-info">
+
+                            <div class="team-image">
+                                <a class="fancybox team-plus-icon" href="javascript:;">
+                                <img src="{{ $member->image }}" alt="{{ $member->name }}" /></a>
+                            </div>
+
+                            <hgroup class="team-group">
+                                <h2 class="team-title">{{ $member->image }}</h2>
+                                <h5 class="team-position">{{ $member->title }}</h5>
+                            </hgroup>
+
+                        </div><!--/ .team-info-->
+
+                        <div class="team-content">
+                            <div class="team-entry">
+
+                                <p>
+
+                                    {{ $member->description }} 
+
+                                </p>    
+
+                                <ul class="social-icons">
+                                    <li class="linkedin"><a href="{{ $member->linkedin }}"><i class="icon-linkedin"></i>LinkedIn</a></li>
+                                    <li class="twitter"><a href="{{ $member->twitter }}"><i class="icon-twitter"></i>Twitter</a></li>
+                                    <li class="facebook"><a href="{{ $member->facebook }}"><i class="icon-facebook"></i>Facebook</a></li>
+                                </ul><!--/ .social-icons-->     
+
+                            </div><!--/ .team-entry-->
+                        </div><!--/ .team-content-->                
+
+                    </div><!--/ .contents-->
+
+                </article>
+
+                @endforeach
+     
+                
+                --}}
             </div><!--/ .team-contents-->
             
         </section><!--/ .team-member-->     

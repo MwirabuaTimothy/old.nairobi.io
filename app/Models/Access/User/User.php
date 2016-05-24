@@ -45,23 +45,28 @@ class User extends Authenticatable implements SluggableInterface {
 	protected $dates = ['deleted_at'];
 
 	/**
-	 * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
+	 * @return \Illuminate\Database\Eloquent\Relations\hasMany
 	 */
-	public function languages() {
-		return $this->belongsToMany('\App\Language', 'user_languages');
+	public function blogs() {
+		return $this->hasMany('\App\Blog');
 	}
-
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\hasManyThrough
+	 */
+	public function stars() {
+		return $this->hasManyThrough('\App\Blog');
+	}
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\hasMany
 	 */
-	public function tours() {
-		return $this->hasMany('\App\Tour');
+	public function followers() {
+		return $this->hasMany('\App\Follow');
 	}
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\hasMany
 	 */
-	public function messages() {
-		return $this->hasMany('\App\Message');
+	public function follows() {
+		return $this->hasMany('\App\Follow', 'follower');
 	}
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\hasMany
@@ -69,11 +74,4 @@ class User extends Authenticatable implements SluggableInterface {
 	public function reviews() {
 		return $this->hasMany('\App\Review');
 	}
-	/**
-	 * @return \Illuminate\Database\Eloquent\Relations\hasOne
-	 */
-	public function apikey() {
-		return $this->hasOne('Chrisbjr\ApiGuard\Models\ApiKey');
-	}
-
 }

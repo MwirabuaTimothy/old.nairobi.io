@@ -7,6 +7,9 @@ use Request;
 
 use App\Http\Requests;
 use App\Blog;
+use App\Tag;
+use App\Star;
+use App\Follow;
 
 class BlogsController extends Controller
 {
@@ -36,7 +39,7 @@ class BlogsController extends Controller
 
 		$title = 'All Blogs';
 		// return compact('title', 'blogs', 'tags');
-		return view('blogs.home', compact('title', 'blogs', 'tags'));
+		return view('blog.home', compact('title', 'blogs', 'tags'));
 	}
 
 	/**
@@ -49,7 +52,7 @@ class BlogsController extends Controller
 		$blogs = $this->blog->latest()->withTrashed()->paginate(20);
 
 		$title = 'All Blogs';
-		return view('blogs.list', compact('title'), compact('blogs'));
+		return view('blog.list', compact('title'), compact('blogs'));
 	}
 
 	/**
@@ -59,7 +62,7 @@ class BlogsController extends Controller
 	 */
 	public function create()
 	{
-		return view('blogs.create');
+		return view('blog.create');
 	}
 
 	/**
@@ -157,7 +160,7 @@ class BlogsController extends Controller
 		if(in_array('api', Request::segments())){
 			return $blog;
 		}
-		return view('blogs.show', compact('blog'));
+		return view('blog.show', compact('blog'));
 	}
 
 	/**
@@ -170,7 +173,7 @@ class BlogsController extends Controller
 	{
 		$blog = $this->blog->findBySlug($slug);
 
-		return view('blogs.edit', compact('blog'));
+		return view('blog.edit', compact('blog'));
 
 	}
 
@@ -214,7 +217,7 @@ class BlogsController extends Controller
 			$blog->update($input);
 		}
 
-		return view('blogs.show', compact('blog'));
+		return view('blog.show', compact('blog'));
 	}
 
 	/**
@@ -273,7 +276,7 @@ class BlogsController extends Controller
 		$title = 'This Week\'s Highlights';
 		$mapped = 1;
 
-		return view('blogs.home', compact(['title', 'blogs', 'mapped']));
+		return view('blog.home', compact(['title', 'blogs', 'mapped']));
 	}
 	public function top($id){
 		if(!isAdmin()):
@@ -304,7 +307,7 @@ class BlogsController extends Controller
 		if(in_array('api', Request::segments())) { //its from api
 			return $blog;
 		}
-		return view('blogs.show', compact('blog'));
+		return view('blog.show', compact('blog'));
 	}
 	public function star($slug){
 
@@ -353,6 +356,6 @@ class BlogsController extends Controller
 		// return $blogs;
 
 		$title = 'Searched: '.$query;
-		return view('blogs.index', compact('title', 'blogs', 'tags', 'query'));
+		return view('blog.index', compact('title', 'blogs', 'tags', 'query'));
 	}
 }

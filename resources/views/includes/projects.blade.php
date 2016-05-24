@@ -197,6 +197,31 @@
                 </div><!--/ .work-item-->
 
             </li>
+            {{--  @todo - from db
+            @foreach($projects as $project)
+            <li class="{{ $project->tag }} mix mix_all opacity2x">
+
+                <div class="work-item">
+                    <a class="fancybox" rel="group" href="{{ $project->image }}" 
+                    title="{{ $project->description }}
+                    <br>Client: {{ $project->client }}
+                    <br>{{ $project->done ?: ' Coming Soon: ' }}<a href='{{ $project->link }}'>{{ $project->link }}</a>
+                    ">
+                        <img src="{{ $project->image }}" alt="" />
+                        <div class="image-extra">
+                            <hgroup class="extra-content">
+                                <h2 class="extra-title">{{ $project->name }}</h2>
+                                <h6 class="extra-category">{{ $project->type }}</h6>
+                            </hgroup><!--/ .extra-content-->    
+                        </div><!--/ .image-extra-->
+                        <!-- <span class="site"><i class="icon-forward"></i></span> -->
+                    </a>    
+                    <a class="site" href="{{ $project->link }}" target="_blank"><i class="icon-forward"></i></a>
+                </div><!--/ .work-item-->
+
+            </li>
+            @endforeach
+            --}}
 
         </ul><!--/ .portfolio-items-->
 

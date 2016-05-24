@@ -18,15 +18,6 @@
                <img class="opacity mobile" src="assets/img/banner/mobile.png" alt="Mobile">
            
                <img class="opacity text_imac" src="assets/img/banner/text_imac.png" id="rev-hint1" alt="All devices and browsers supported">
-               
-               <!-- <img class="slideUp imac" src="assets/img/banner/imac.png" alt="Big Screens">
-               <img class="slideLeft laptop" src="assets/img/banner/laptop.png" alt="Laptops">
-
-               <img class="slideRight tab" src="assets/img/banner/tab.png" alt="Tablets">
-              
-               <img class="slideDown mobile" src="assets/img/banner/mobile.png" alt="Mobile">
-           
-               <img class="slideUp text_imac" src="assets/img/banner/text_imac.png" id="rev-hint1" alt="All devices and browsers supported"> -->
           </div>
 
           <div class=" explain col-lg-6">

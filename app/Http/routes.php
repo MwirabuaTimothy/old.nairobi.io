@@ -126,7 +126,7 @@ Route::group(['middleware' => 'web'], function () {
 		# Blog Management
 		Route::group(array('prefix' => 'blog'), function(){
 
-			Route::get('/',  ['as'=>'blog', 'uses' => 'BlogsController@index']);
+			Route::get('/',  ['as'=>'blog.home', 'uses' => 'BlogsController@index']);
 
 			Route::get('api', function(){ return Article::paginate(10); });
 			Route::get('create',  ['as'=>'blog.create', 'uses' => 'BlogsController@create']);
@@ -147,6 +147,32 @@ Route::group(['middleware' => 'web'], function () {
 			Route::post('{slug}', array('as' => 'blog.update', 'uses' => 'BlogsController@update'));
 
 		});
+
+
+		Route::resource('blog', 'BlogsController');
+
+
+		Route::get('highlights/api', ['as'=>'article.highlights.api', 'uses'=>'BlogsController@highlights']);
+
+
+		# Tags Management
+
+		Route::get('tags/api', function(){
+			// return Tag::usage();
+			return Tag::paginate(30);
+		});
+		Route::get('tags/{id}/api', function($id){
+			// return Tag::find($id);
+			return Tag::find($id)->articles;
+		});
+		Route::get('tagged/{name}/api', function($name){
+			return Tag::where('name', $name)->first()->articles;
+		});
+
+		Route::resource('tags', 'TagsController');
+		Route::get('tagged/{slug}', ['as'=>'tags.show', 'uses'=>'TagsController@show']); // overriding default url structure
+
+
 
 
 
