@@ -799,14 +799,15 @@ body {
 			font-family: 'Julius Sans One', sans-serif;
 			
 			-webkit-transition: font-size .25s ease;
-					transition: font-size .25s ease;
+					transition: transform .25s ease;
+			transform-origin: left top;
 		}
 		
 		.transparent #logo { font-size: 44px; }
 		
 			.transparent #logo a { color: #fff; }
 		
-		.header-shrink #logo { font-size: 28px; }
+		.header-shrink #logo { transform: scale(0.63); }
 		
 			.header-shrink #logo a { color: #fff; }
 	#creed{
@@ -817,6 +818,8 @@ body {
 		/*display: block;*/
 		/*font-size: 20px;*/
 	}
+
+		.header-shrink #creed { transform: translateY(-18px); }
 
 	/* -------------------------------------------------- */
 	/*	Main Navigation
